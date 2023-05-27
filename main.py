@@ -1,8 +1,8 @@
 import formatacao
 import rodarprograma
-import pessoafisica
-import ongs
-import empresas
+import PessoaFisica.pessoafisica as pessoafisica
+import ONGs.ongs as ongs
+import Empresas.empresas as empresas
 
 def main_menu():
     loop = True
