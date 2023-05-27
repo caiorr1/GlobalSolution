@@ -1,9 +1,10 @@
 import formatacao
 import rodarprograma
-import PessoaFisica.pessoafisica as pessoafisica
-import ONGs.ongs as ongs
-import Empresas.empresas as empresas
+import pessoafisica 
+import ongs 
+import empresas 
 
+#this function makes the first contact with user, let him choose what way he wants
 def main_menu():
     loop = True
     while loop:
