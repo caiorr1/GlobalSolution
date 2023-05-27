@@ -8,8 +8,8 @@ def main_menu():
     loop = True
     while loop:
         
-        entrance = input(' Digite (1) se você é uma Empresa\n Digite (2) se você é uma ONG\n Digite (3) se você é uma Pessoa Fisíca\n Digite (4) se você é ADMIN\n')
-        entrance_list = ['1', '2', '3', '4']
+        entrance = input(' Digite (1) se você é uma Empresa\n Digite (2) se você é uma ONG\n Digite (3) se você é uma Pessoa Fisíca\n Digite (4) se você é ADMIN\n Digite (5) se deseja encerrar o programa\n')
+        entrance_list = ['1', '2', '3', '4', '5']
         
         if entrance not in entrance_list:
             print('\nOpção inválida! Tente novamente.\n')   
@@ -31,9 +31,13 @@ def main_menu():
             loop = False
             
         elif entrance == entrance_list[3]:
-            print('Ok...Indo para área de Admin')
+            print('\nOk...Indo para área de Admin\n')
             rodarprograma.admin_run()
             loop = False
+            
+        elif entrance == entrance_list[4]:
+            print('\nOk...Encerrando o programa.\n')
+            quit()
             
 #program start
 if __name__ == '__main__':
