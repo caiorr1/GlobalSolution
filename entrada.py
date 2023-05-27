@@ -2,14 +2,10 @@ import formatacao
 import main
 
 
-def get_companies():
-    formatacao.formatting()
-    print('Bem vindo à area para Empresas!')
-    formatacao.formatting()
-    
+def first_message():
     loop = True
     while loop:
-        
+            
         choice = input('Digite (1) se deseja se cadastrar.\nDigite (2) se deseja fazer login\nDigite (3) se deseja voltar ao menu principal.\n')
         choice_list = ['1', '2', '3']
         
@@ -22,9 +18,3 @@ def get_companies():
             print('- Bem vindo ao SeedS, aquecendo corações! -')
             formatacao.formatting()
             main.main_menu()
-        #CONTINUAR A OPCAO DE CADASTRO    
-        elif choice == choice_list[0]:
-            print('CONTINUA')
-        #CONTINUAR A OPCAO DE LOGIN
-        elif choice == choice_list[1]:
-            print('CONTINUA')    
