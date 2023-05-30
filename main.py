@@ -1,8 +1,8 @@
 import formatacao
 import rodarprograma
-import pessoafisica 
-import ongs 
-import empresas 
+import RodandoUser.pessoafisica as pessoafisica 
+import RodandoUser.ongs as ongs 
+import RodandoUser.empresas as empresas 
 
 #this function makes the first contact with user, let him choose what way he wants
 def main_menu():

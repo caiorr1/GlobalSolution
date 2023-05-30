@@ -1,0 +1,36 @@
+{
+    "empresas_cadastradas": {
+        "caio": {
+            "senha": "123",
+            "nome_empresa": "oaoa",
+            "endereco_empresa": "akl",
+            "alimentos_doados": []
+        },
+        "caiooo": {
+            "senha": "123",
+            "nome_empresa": "lalala",
+            "endereco_empresa": "eeee",
+            "alimentos_doados": []
+        },
+        "pedrin": {
+            "senha": "123",
+            "nome_empresa": "bar do juca",
+            "endereco_empresa": "rua alalala123",
+            "alimentos_doados": []
+        },
+        "clebin": {
+            "senha": "123",
+            "nome_empresa": "bar do zeze",
+            "endereco_empresa": "av paulista",
+            "alimentos_doados": []
+        },
+        "akakak": {
+            "senha": "123",
+            "nome_empresa": "aweera",
+            "endereco_empresa": "lqwe",
+            "alimentos_doados": [
+                "arroz feijao carne"
+            ]
+        }
+    }
+}

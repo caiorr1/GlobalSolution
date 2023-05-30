@@ -1,6 +1,8 @@
 import formatacao
 import main
 import json
+import Alteracao.alterardados_empresas as alterardados_empresas
+
 
 def get_companies():
     formatacao.formatting()
@@ -25,15 +27,16 @@ def get_companies():
             main.main_menu()
         #CONTINUAR A OPCAO DE CADASTRO    
         elif choice == choice_list[0]:
-            print('Ok...Vamos cadastrar sua empresa.\n')
+            print('Ok...Vamos cadastrar sua empresa!\n')
             
             login = input('Digite o seu nome de usuário\n')
             
-            with open ('empresas.json') as file:
+            with open ('./../Json/empresas.json') as file:
                 empresas_json = json.load(file)
     
             empresas_way = empresas_json["empresas_cadastradas"]
             empresas_insert = login in empresas_way
+            file.close()
             
             nome_empresa = input('\nDigite o nome da sua empresa.\n')
             endereco_empresa = input('\nDigite o endereço da sua empresa.\n')
@@ -48,7 +51,7 @@ def get_companies():
                     break 
                     
             alimentos_doados = input('\nLegal! Seu cadastro está quase acabando... Por último, escreva os alimentos que pretende doar\n')
-            alimentos_doados = []
+            alimentos_doados = [alimentos_doados]
             
             
             if not empresas_insert:
@@ -59,13 +62,25 @@ def get_companies():
                         "endereco_empresa" : endereco_empresa,
                         "alimentos_doados" : alimentos_doados,
                     }
-                    print('ok')
+                    print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
                     
                     with open('empresas.json', 'w') as final_file:
-                        json.dumps({"empresas_cadastro" : empresas_way}, final_file)
+                        json.dump({"empresas_cadastradas" : empresas_way}, final_file)
                     final_file.close()
                     
                     
         #CONTINUAR A OPCAO DE LOGIN
         elif choice == choice_list[1]:
-            print('CONTINUA')    
+            print('\nOk...Vamos fazer o login!\n')
+            login = input('Digite o seu usuário.\n')
+            senha = input('\nDigite a sua senha.\n')
+            
+            with open('./../Json/empresas.json') as arquivo_validado:
+                validation_json = json.load(arquivo_validado)
+                
+                empresas_way2 = validation_json["empresas_cadastradas"]
+                
+            if login in empresas_way2: 
+                
+                if senha == empresas_way2[login]['senha']:
+                    print('ok')
