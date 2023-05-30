@@ -1,8 +1,6 @@
 import formatacao
 import main
 import json
-import Alteracao.alterardados_empresas as alterardados_empresas
-
 
 def get_companies():
     formatacao.formatting()
@@ -31,7 +29,7 @@ def get_companies():
             
             login = input('Digite o seu nome de usuário\n')
             
-            with open ('./../Json/empresas.json') as file:
+            with open ('empresas.json') as file:
                 empresas_json = json.load(file)
     
             empresas_way = empresas_json["empresas_cadastradas"]
@@ -75,12 +73,10 @@ def get_companies():
             login = input('Digite o seu usuário.\n')
             senha = input('\nDigite a sua senha.\n')
             
-            with open('./../Json/empresas.json') as arquivo_validado:
-                validation_json = json.load(arquivo_validado)
+            with open('empresas.json') as arquivo_validado:
+                validation_file = json.load(arquivo_validado)
                 
-                empresas_way2 = validation_json["empresas_cadastradas"]
+                validation_json = validation_file['empresas_cadastradas']
                 
-            if login in empresas_way2: 
-                
-                if senha == empresas_way2[login]['senha']:
-                    print('ok')
+            if login in validation_json and senha == validation_json[login]['senha']:
+                print('foi')
