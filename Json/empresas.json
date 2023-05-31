@@ -47,6 +47,22 @@
             "alimentos_doados": [
                 "cafe"
             ]
+        },
+        "lucian": {
+            "senha": "322",
+            "nome_empresa": "patipiva",
+            "endereco_empresa": "faria lima",
+            "alimentos_doados": [
+                "chocolate"
+            ]
+        },
+        "vag": {
+            "senha": "456",
+            "nome_empresa": "fiap",
+            "endereco_empresa": "av paulista",
+            "alimentos_doados": [
+                "computador"
+            ]
         }
     }
 }
