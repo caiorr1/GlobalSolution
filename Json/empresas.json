@@ -31,6 +31,22 @@
             "alimentos_doados": [
                 "arroz feijao carne"
             ]
+        },
+        "samuca": {
+            "senha": "321",
+            "nome_empresa": "habibs",
+            "endereco_empresa": "av europa",
+            "alimentos_doados": [
+                "esfirra"
+            ]
+        },
+        "beatriz": {
+            "senha": "655",
+            "nome_empresa": "cafezinho da bia",
+            "endereco_empresa": "rua batatinha 123",
+            "alimentos_doados": [
+                "cafe"
+            ]
         }
     }
 }

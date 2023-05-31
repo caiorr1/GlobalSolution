@@ -1,8 +1,10 @@
 import formatacao
 import rodarprograma
-import pessoafisica 
-import ongs 
-import empresas 
+import Doadores.pessoafisica as pessoafisica 
+import Doadores.ongs as ongs 
+import Doadores.empresas as empresas
+import os
+
 
 #this function makes the first contact with user, let him choose what way he wants
 def main_menu():
@@ -15,7 +17,6 @@ def main_menu():
         if entrance not in entrance_list:
             print('\nOpção inválida! Tente novamente.\n')   
             
-        
         elif entrance == entrance_list[0]:
             print('\nOk...Indo para cadastro de Empresas.\n')
             empresas.get_companies()
@@ -42,6 +43,11 @@ def main_menu():
             
 #program start
 if __name__ == '__main__':
+    
+    main_path = './GlobalSolution'
+    for root, subFolder, filename in os.walk(main_path):
+        for folder in subFolder:
+            print(folder)
     
     formatacao.formatting()
     print('- Bem vindo ao SeedS, aquecendo corações! -')

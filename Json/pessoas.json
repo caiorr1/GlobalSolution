@@ -1,0 +1,10 @@
+{
+    "pessoas_cadastradas" : {
+        "login" : {
+            "senha": "senha",
+            "nome_ong": "nome_ong",
+            "endereco_ong": "endereco_ong",
+            "alimentos_doados" : "alimentos_doados"
+        }  
+    }
+}
