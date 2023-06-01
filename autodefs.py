@@ -2,11 +2,15 @@ import formatacao
 import main
 import json
 
+
+#função que leva ao menu principal
 def go_to_menu():
     print('\nOk...Voltando para o menu principal\n')
     formatacao.title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
     main.main_menu()
-   
+
+
+#função para verificar se o usuario e o email já estão registrados   
 def is_user_registered(login_empresas,email_empresa):
     with open('Json/empresas.json') as file:
         empresas_json = json.load(file)
@@ -20,6 +24,7 @@ def is_user_registered(login_empresas,email_empresa):
             return "EMAIL_EXISTS"
     
     return None
+
 
 #função para ler o json das empresas
 def readjson_empresas(login_empresas):
@@ -35,6 +40,7 @@ def readjson_empresas(login_empresas):
  #função para inserir os dados no json das empresas   
 
 
+#função para inserir os dados no json das empresas
 def insertjson_empresas(login_empresas, nome_empresa, endereco_empresa,email_empresa, password_empresas, checkedpassword_empresas, donated_alimentos_empresas, empresas_way, empresas_insert):
     if not empresas_insert:
         if password_empresas == checkedpassword_empresas:
