@@ -3,9 +3,9 @@ import autodefs
 import os
 
 def get_companies():
-    formatacao.formatting()
+    formatacao.lin()
     print('Bem vindo à area para Empresas!')
-    formatacao.formatting()
+    formatacao.lin()
     
     loop = True
     while loop:

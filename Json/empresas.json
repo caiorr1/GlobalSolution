@@ -63,6 +63,23 @@
             "alimentos_doados": [
                 "computador"
             ]
+        },
+        "pepepepe": {
+            "senha": "123",
+            "nome_empresa": "patipiva",
+            "endereco_empresa": "jkk iguatemi",
+            "alimentos_doados": [
+                "cafe"
+            ]
+        },
+        "lu": {
+            "senha": "123",
+            "nome_empresa": "itau",
+            "endereco_empresa": "estrada de itapecirica",
+            "email_empresa": "lduaeia@gmail.com",
+            "alimentos_doados": [
+                "dinheiro"
+            ]
         }
     }
 }

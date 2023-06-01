@@ -41,6 +41,7 @@ def main_menu():
             print('\nOk...Encerrando o programa.\n')
             quit()
             
+            
 #program start
 if __name__ == '__main__':
     
@@ -49,7 +50,5 @@ if __name__ == '__main__':
         for folder in subFolder:
             print(folder)
     
-    formatacao.formatting()
-    print('- Bem vindo ao SeedS, aquecendo corações! -')
-    formatacao.formatting()
+    formatacao.title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
     main_menu()

@@ -1,10 +1,10 @@
 {
     "ongs_cadastradas" : {
         "login" : {
-            "senha": "senha",
+            "senha": "password_ong",
             "nome_ong": "nome_ong",
             "endereco_ong": "endereco_ong",
-            "alimentos_doados" : "alimentos_doados"
+            "receber_alimentos" : "recive_alimentos_ong"
         }
     }
 }

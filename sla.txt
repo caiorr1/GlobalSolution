@@ -1,0 +1,2 @@
+email_empresa = input('Digite o seu email:\n')
+print('\nEmail já cadastrado. Escola outro email.\n')
