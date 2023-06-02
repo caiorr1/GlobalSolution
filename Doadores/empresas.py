@@ -29,8 +29,9 @@ def get_companies():
             validation_json = autodefs.loadjson_empresas()
             nome_empresa = 'nome_empresa'
             endereco_empresa = 'endereco_empresa'
-            alimentos_doados = 'alimentos_doados'
-            autodefs.make_login_empresas(validation_json, nome_empresa, endereco_empresa, alimentos_doados)
+            donated_alimentos_empresas = 'alimentos_doados'
+            email_empresa = 'email_empresa'
+            autodefs.make_login_empresas(validation_json, nome_empresa, endereco_empresa, donated_alimentos_empresas, email_empresa)
             
                             
                     

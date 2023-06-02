@@ -1,84 +1,29 @@
 {
     "empresas_cadastradas": {
+        "login_empresas": {
+            "senha": "checkedpassword_empresas",
+            "nome_empresa": "nome_empresa",
+            "endereco_empresa": "endereco_empresa",
+            "email_empresa": "email_empresa",
+            "alimentos_doados": "donated_alimentos_empresas"
+        },
         "caio": {
             "senha": "123",
-            "nome_empresa": "oaoa",
-            "endereco_empresa": "akl",
-            "alimentos_doados": []
-        },
-        "caiooo": {
-            "senha": "123",
-            "nome_empresa": "lalala",
-            "endereco_empresa": "eeee",
-            "alimentos_doados": []
-        },
-        "pedrin": {
-            "senha": "123",
-            "nome_empresa": "bar do juca",
-            "endereco_empresa": "rua alalala123",
-            "alimentos_doados": []
-        },
-        "clebin": {
-            "senha": "123",
-            "nome_empresa": "bar do zeze",
-            "endereco_empresa": "av paulista",
-            "alimentos_doados": []
-        },
-        "akakak": {
-            "senha": "123",
-            "nome_empresa": "aweera",
-            "endereco_empresa": "lqwe",
-            "alimentos_doados": [
-                "arroz feijao carne"
-            ]
-        },
-        "samuca": {
-            "senha": "321",
-            "nome_empresa": "habibs",
-            "endereco_empresa": "av europa",
-            "alimentos_doados": [
-                "esfirra"
-            ]
-        },
-        "beatriz": {
-            "senha": "655",
-            "nome_empresa": "cafezinho da bia",
-            "endereco_empresa": "rua batatinha 123",
-            "alimentos_doados": [
-                "cafe"
-            ]
-        },
-        "lucian": {
-            "senha": "322",
-            "nome_empresa": "patipiva",
-            "endereco_empresa": "faria lima",
-            "alimentos_doados": [
-                "chocolate"
-            ]
-        },
-        "vag": {
-            "senha": "456",
             "nome_empresa": "fiap",
             "endereco_empresa": "av paulista",
+            "email_empresa": "caiorr200@gmail.com",
             "alimentos_doados": [
-                "computador"
+                "Arroz, feijao, batata, carne"
             ]
         },
-        "pepepepe": {
+        "joao": {
             "senha": "123",
-            "nome_empresa": "patipiva",
-            "endereco_empresa": "jkk iguatemi",
+            "nome_empresa": "fiap",
+            "endereco_empresa": "av paulista",
+            "email_empresa": "lalal@outlook.com",
             "alimentos_doados": [
-                "cafe"
-            ]
-        },
-        "lu": {
-            "senha": "123",
-            "nome_empresa": "itau",
-            "endereco_empresa": "estrada de itapecirica",
-            "email_empresa": "lduaeia@gmail.com",
-            "alimentos_doados": [
-                "dinheiro"
+                "computador",
+                "banana, arroz, feijao"
             ]
         }
     }

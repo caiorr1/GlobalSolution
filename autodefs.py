@@ -56,14 +56,14 @@ def insertjson_empresas(login_empresas, nome_empresa, endereco_empresa,email_emp
             with open('Json/empresas.json', 'w') as final_file:
                 json.dump({"empresas_cadastradas" : empresas_way}, final_file)
             final_file.close()
-
+ 
 
 #funcao para carregar o json, usada para validação das empresas
 def loadjson_empresas():
     with open('Json/empresas.json') as arquivo_validado:
         validation_file = json.load(arquivo_validado)
         
-        validation_json = validation_file['empresas_cadastradas']
+        validation_json = validation_file["empresas_cadastradas"]
     
     return validation_json
 
@@ -76,6 +76,7 @@ def make_register_empresas():
     while looplogin:  
         login_empresas = input('Digite seu nome de usuário:\n')
         email_empresa = input('\nDigite o seu email:\n')
+        
         # Verifica se o usuário já está cadastrado no JSON
         result = is_user_registered(login_empresas, email_empresa)
         if result == "USER_EXISTS":
@@ -106,41 +107,103 @@ def make_register_empresas():
 
 
 #função para fazer o login das empresas
-def make_login_empresas(validation_json, nome_empresa, endereco_empresa, donated_alimentos_empresas):
+def make_login_empresas(validation_json, nome_empresa, endereco_empresa,email_empresa, donated_alimentos_empresas):
     print('\nOk... Vamos fazer o login!\n')
-    login_empresas = input('Digite o seu usuário:\n')
-    password_empresas = input('\nDigite a sua senha:\n')
     
-    if login_empresas in validation_json and password_empresas == validation_json[login_empresas]['senha']:
-        formatacao.lin()
-        print(f'Bem-vindo, {login_empresas}!')
-        formatacao.lin()
+    looplogin = True
+    while looplogin:
+    
+        login_empresas = input('Digite o seu usuário:\n')
+        password_empresas = input('\nDigite a sua senha:\n')
         
-        while True:
-            choice2 = input('\nDigite (1) para exibir suas informações.\nDigite (2) para adicionar informações.\nDigite (3) para voltar ao menu principal.\n')
+        if login_empresas in validation_json and password_empresas == validation_json[login_empresas]["senha"]:
+            formatacao.lin()
+            print(f'Bem-vindo, {login_empresas}!')
+            formatacao.lin()
+            looplogin = False
             
-            if choice2 == '1':
-                print('\nOk... Vamos exibir suas informações!\n')
+            while True:
+                choice2 = input('\nDigite (1) para exibir suas informações.\nDigite (2) para alterar informações. \nDigite (3) para adicionar mais alimentos na sua lista\nDigite (4) para voltar ao menu principal.\n')
                 
-                if login_empresas in validation_json:
-                    print('Informações da empresa:')
-                    print(f'Nome: {validation_json[login_empresas][nome_empresa]}')
-                    print(f'Endereço: {validation_json[login_empresas][endereco_empresa]}')
-                    print(f'Alimentos doados: {validation_json[login_empresas][donated_alimentos_empresas]}')
-                else:
-                    print('Empresa não encontrada.')
-                
-            elif choice2 == '2':
-                print('\nOk... Vamos adicionar informações!\n')
-                # Lógica para adicionar informações da empresa
-                
-            elif choice2 == '3':
-                go_to_menu()
-                break
-                
-            else:
-                print('\nOpção inválida! Tente novamente.\n')
+                if choice2 == '1':
+                    print('\nOk... Vamos exibir suas informações!\n')
+                    
+                    if login_empresas in validation_json:
+                        print('Informações da empresa:')
+                        print(f'Nome: {validation_json[login_empresas]["nome_empresa"]}')
+                        print(f'Endereço: {validation_json[login_empresas]["endereco_empresa"]}')
+                        print(f'Contato: {validation_json[login_empresas]["email_empresa"]}')
+                        print(f'Alimentos doados: {validation_json[login_empresas]["alimentos_doados"]}')
+                    else:
+                        print('Empresa não encontrada.')
+                    
+                elif choice2 == '2':
+                    print('\nOk... Vamos alterar informações!\n')
+                    
+                    new_cadaster_empresas = validation_json
+                    
+                    if login_empresas in new_cadaster_empresas:
+                        print('\nVamos refazer o seu cadastro!\n')
                         
+                        current_empresa = new_cadaster_empresas[login_empresas]
+                        
+                        new_name_empresas = input('Digite o novo nome da empresa:\n')
+                        current_empresa['nome_empresa'] = new_name_empresas
+                        
+                        new_address_empresas = input('\nDigite o novo endereço:\n')
+                        current_empresa['endereco_empresa'] = new_address_empresas
+                        
+                        new_email_empresa = input('\nDigite o novo email:\n')
+                        current_empresa['email_empresa'] = new_email_empresa
+                        
+                        with open('Json/empresas.json', 'w') as file:
+                            json.dump(new_cadaster_empresas, file, indent=4)
+
+                        print('Informações salvas com sucesso!')
+                        
+                elif choice2 =='3':
+                    print('\nOk...Vamos adicionar alimentos a sua lista!\n')
+                    
+                    with open('Json/empresas.json', 'r') as file2:
+                        data = json.load(file2)
+                    
+                    
+                    if login_empresas in data["empresas_cadastradas"]:
+                        lista_empresas = data["empresas_cadastradas"][login_empresas]["alimentos_doados"]
+                        
+                        loopstring = True
+                        while loopstring:
+    
+                            new_alimento = input('Digite os alimentos que deseja adicionar na lista.\n')
+                            if new_alimento.isnumeric():
+                                print('\nDigite alimentos.\n')
+
+                            else:
+                                lista_empresas.append(new_alimento)
+                                loopstring = False
+                                print('Salvando...')
+
+                        
+                            with open('Json/empresas.json', 'w') as file:
+                                json.dump(data, file, indent=4)
+                                file.close()
+                                file2.close()
+                                
+                            print('\nA lista foi salva com êxito!\n')
+                            
+                            formatacao.lin()
+                            print(f'Bem vindo {login_empresas}!')
+                            formatacao.lin()    
+                            
+                elif choice2 == '4':
+                    go_to_menu()
+                    break
+                    
+                else:
+                    print('\nOpção inválida! Tente novamente.\n')
+        else:
+            print('\nUsuário e senha não encontrados. Digite novamente.\n')
+                               
 
 def readjson_ongs(login_ong):
     with open ('Json/empresas.json') as file:
