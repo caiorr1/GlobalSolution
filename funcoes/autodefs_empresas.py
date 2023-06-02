@@ -1,4 +1,4 @@
-import formatacao
+from formatacao import title, lin
 import main
 import json
 
@@ -6,7 +6,7 @@ import json
 #função que leva ao menu principal
 def go_to_menu():
     print('\nOk...Voltando para o menu principal\n')
-    formatacao.title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
+    title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
     main.main_menu()
 
 
@@ -108,7 +108,7 @@ def make_register_empresas():
     
     print('\nTudo Ok!\n')
     
-    formatacao.title(title1='Bem vindo à area para Empresas!')
+    title(title1='Bem vindo à area para Empresas!')
     
 
 #função para fazer o login das empresas
@@ -122,7 +122,7 @@ def make_login_empresas(validation_json):
         password_empresas = input('\nDigite a sua senha:\n')
         
         if login_empresas in validation_json and password_empresas == validation_json[login_empresas]["senha"]:
-            formatacao.title(title1=f'Bem vindo {login_empresas}!')
+            title(title1=f'Bem vindo {login_empresas}!')
            
             looplogin = False
             
@@ -164,12 +164,12 @@ def make_login_empresas(validation_json):
                             json.dump(new_cadaster_empresas, file, indent=4)
 
                         print('\nInformações salvas com sucesso!\n')
-                        formatacao.title(title1='Bem vindo à area para Empresas!')
+                        title(title1='Bem vindo à area para Empresas!')
                         
                 elif choice2 =='3':
                     print('\nOk...Vamos adicionar alimentos a sua lista!\n')
                     
-                    with open('Json/empresas.json', 'r') as file2:
+                    with open('Json/empresas.json', 'r+') as file2:
                         data = json.load(file2)
                     
                     
@@ -189,16 +189,15 @@ def make_login_empresas(validation_json):
                                 print('Salvando...')
 
                         
-                            with open('Json/empresas.json', 'w') as file:
-                                json.dump(data, file, indent=4)
-                                file.close()
-                                file2.close()
+                            file.seek(0)  
+                            json.dump(data, file, indent=4)
+                            file.truncate()
                                 
                             print('\nA lista foi salva com êxito!\n')
                             
-                            formatacao.lin()
+                            lin()
                             print(f'Bem vindo {login_empresas}!')
-                            formatacao.lin()    
+                            lin()    
                             
                 elif choice2 == '4':
                     go_to_menu()

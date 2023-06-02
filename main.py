@@ -1,8 +1,8 @@
 import formatacao
 import rodarprograma
-import Doadores.pessoafisica as pessoafisica 
-import Doadores.ongs as ongs 
-import Doadores.empresas as empresas
+import doadores.pessoafisica as pessoafisica 
+import doadores.ongs as ongs 
+import doadores.empresas as empresas
 import os
 
 

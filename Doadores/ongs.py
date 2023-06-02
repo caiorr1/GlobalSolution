@@ -1,13 +1,11 @@
-import formatacao
-import main
-import json
+from formatacao import lin
 import funcoes.autodefs_ongs as autodefs_ongs
-import funcoes.autodefs_empresas as functionmenu
+import funcoes.autodefs_empresas as autodefs_empresas
 
 def get_ongs():
-    formatacao.formatting()
+    lin()
     print('Bem vindo à area para ONGs!')
-    formatacao.formatting()
+    lin()
     
     
     loop = True
@@ -20,11 +18,13 @@ def get_ongs():
             print('\nOpção inválida! Tente novamente\n')
             
         elif choice in choice_list[2]:
-            functionmenu.go_to_menu()
+            autodefs_empresas.go_to_menu()
             
         #CONTINUAR A OPCAO DE CADASTRO    
         elif choice == choice_list[0]:
             autodefs_ongs.make_register_ongs()
+        
         #CONTINUAR A OPCAO DE LOGIN
         elif choice == choice_list[1]:
-            print('CONTINUA')  
+            validation_json_ongs = autodefs_ongs.loadjson_ongs
+            autodefs_ongs.make_login_ongs(validation_json_ongs)
