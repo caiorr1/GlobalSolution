@@ -6,37 +6,6 @@
             "endereco_empresa": "endereco_empresa",
             "email_empresa": "email_empresa",
             "alimentos_doados": "donated_alimentos_empresas"
-        },
-        "caio": {
-            "senha": "123",
-            "nome_empresa": "patipiva",
-            "endereco_empresa": "rua canamari ",
-            "email_empresa": "caio@gmail.com",
-            "alimentos_doados": [
-                "Arroz, feijao, batata, carne",
-                "aaa",
-                "aaa",
-                "abc"
-            ]
-        },
-        "joao": {
-            "senha": "123",
-            "nome_empresa": "fiap",
-            "endereco_empresa": "av paulista",
-            "email_empresa": "lalal@outlook.com",
-            "alimentos_doados": [
-                "computador",
-                "banana, arroz, feijao"
-            ]
-        },
-        "ae": {
-            "senha": "123",
-            "nome_empresa": "aeaeaelll",
-            "endereco_empresa": "av sla",
-            "email_empresa": "aeae@gmail.com",
-            "alimentos_doados": [
-                "oleo"
-            ]
         }
     }
 }

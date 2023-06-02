@@ -6,16 +6,6 @@
             "email_ong": "email_ong",
             "endereco_ong": "endereco_ong",
             "receber_alimentos": "recive_alimentos_ong"
-        },
-        "caio": {
-            "senha": "123",
-            "nome_ong": "sementinhas do bem",
-            "endereco_ong": "av paulista",
-            "email_ong": "caca@outlook.com",
-            "receber_alimentos": [
-                "arroz, feijao e fritas",
-                "banana"
-            ]
         }
     }
 }

@@ -1,11 +1,11 @@
-import formatacao
+from formatacao import lin, title
 import main
-import json
+import funcoes.autodefs_pessoafisica as autodefs_pessoafisica
 
 def get_natural_person():
-    formatacao.formatting()
+    lin()
     print('Bem vindo à area de Pessoa Fisíca!')
-    formatacao.formatting()
+    lin()
     
     loop = True
     while loop:
@@ -18,36 +18,15 @@ def get_natural_person():
             
         elif choice in choice_list[2]:
             print('\nOk...Voltando para o menu principal\n')
-            formatacao.formatting()
+            lin()
             print('- Bem vindo ao SeedS, aquecendo corações! -')
-            formatacao.formatting()
+            lin()
             main.main_menu()
         #CONTINUAR A OPCAO DE CADASTRO    
         elif choice == choice_list[0]:
-            print('Ok...Vamos te cadastrar.\n')
-            
-            login = input('Digite o seu nome de usuário\n')
-            
-            with open ('pessoas.json') as file:
-                pessoafisica_json = json.load(file)
-                
-            pessoafisica_way = pessoafisica_json["ongs_cadastradas"]
-            pessoafisica_insert = login in pessoafisica_json
-            
-            nome_pessoa = input('\nDigite o nome da sua ONG\n')
-            endereco_pessoa = input('\nDigite o endereço da sua ONG\n') 
-            
-            loop2 = True
-            while loop2:
-                senha = input('\nDigite sua senha.\n')
-                senha_confirmada = input('\nConfirme sua senha.\n')
-                if senha != senha_confirmada:
-                    print('\nSenhas não conferem. Digite novamente.\n')
-                elif senha == senha_confirmada:
-                    break
-                
-            alimentos_doados = input('Legal! Seu cadastro está quase acabando... Por último, escreva os alimentos que gostaria de receber.\n')       
-            alimentos_doados = []
+            autodefs_pessoafisica.make_register_pessoa()
+       
         #CONTINUAR A OPCAO DE LOGIN
         elif choice == choice_list[1]:
-            print('CONTINUA') 
+            validation_json_pessoas = autodefs_pessoafisica.loadjson_pessoas()
+            autodefs_pessoafisica.make_login_pessoa(validation_json_pessoas)

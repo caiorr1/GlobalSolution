@@ -1,5 +1,4 @@
 from formatacao import title, lin
-import main
 import json
 import funcoes.autodefs_empresas as autodefs_empresas
 
@@ -33,13 +32,13 @@ def readjson_ongs(login_ong):
 
 
 #função para inserir os dados no json das ongs
-def insertjson_ongs(login_ong, name_ong, addres_ong, email_ong, password_ong, checkedpassord_ong, recived_alimentos_ong, ongs_way, ongs_insert):
+def insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, checkedpassord_ong, recived_alimentos_ong, ongs_way, ongs_insert):
     if not ongs_insert:
         if password_ong == checkedpassord_ong:
             ongs_way[login_ong] = {
                 "senha" : checkedpassord_ong,
                 "nome_ong" : name_ong,
-                "endereco_ong" : addres_ong,
+                "endereco_ong" : address_ong,
                 "email_ong" : email_ong,
                 "receber_alimentos" : recived_alimentos_ong,
             }
@@ -96,7 +95,7 @@ def make_register_ongs():
     print('\nCadastro completo! Salvando...\n')
     ongs_way, ongs_insert = readjson_ongs(login_ong)
     
-    insertjson_ongs(login_ong, name_ong, address_ong,email_ong, password_ong, checkedpassord_ong, recived_alimentos_ong, ongs_way, ongs_insert)
+    insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, checkedpassord_ong, recived_alimentos_ong, ongs_way, ongs_insert)
     
     print('\nTudo Ok!\n')
     
