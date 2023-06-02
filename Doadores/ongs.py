@@ -1,7 +1,8 @@
 import formatacao
 import main
 import json
-import autodefs
+import funcoes.autodefs_ongs as autodefs_ongs
+import funcoes.autodefs_empresas as functionmenu
 
 def get_ongs():
     formatacao.formatting()
@@ -19,11 +20,11 @@ def get_ongs():
             print('\nOpção inválida! Tente novamente\n')
             
         elif choice in choice_list[2]:
-            autodefs.go_to_menu()
+            functionmenu.go_to_menu()
             
         #CONTINUAR A OPCAO DE CADASTRO    
         elif choice == choice_list[0]:
-            autodefs.make_register_ongs()
+            autodefs_ongs.make_register_ongs()
         #CONTINUAR A OPCAO DE LOGIN
         elif choice == choice_list[1]:
             print('CONTINUA')  

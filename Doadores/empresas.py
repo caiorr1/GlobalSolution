@@ -1,5 +1,5 @@
 import formatacao
-import autodefs
+import funcoes.autodefs_empresas as autodefs_empresas
 import os
 
 def get_companies():
@@ -18,16 +18,16 @@ def get_companies():
         
         #condicion makes user go to menu
         elif choice in choice_list[2]:
-            autodefs.go_to_menu()
+            autodefs_empresas.go_to_menu()
         
         #condicion makes user register    
         elif choice == choice_list[0]:
-            autodefs.make_register_empresas()
+            autodefs_empresas.make_register_empresas()
                     
         #CONTINUAR A OPCAO DE LOGIN
         elif choice == choice_list[1]:
-            validation_json = autodefs.loadjson_empresas()
-            autodefs.make_login_empresas(validation_json)
+            validation_json = autodefs_empresas.loadjson_empresas()
+            autodefs_empresas.make_login_empresas(validation_json)
             
                             
                     
