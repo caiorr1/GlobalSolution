@@ -13,7 +13,8 @@
             "endereco_empresa": "av paulista",
             "email_empresa": "caiorr200@gmail.com",
             "alimentos_doados": [
-                "Arroz, feijao, batata, carne"
+                "Arroz, feijao, batata, carne",
+                "aaa"
             ]
         },
         "joao": {
@@ -24,6 +25,15 @@
             "alimentos_doados": [
                 "computador",
                 "banana, arroz, feijao"
+            ]
+        },
+        "ae": {
+            "senha": "123",
+            "nome_empresa": "aeaeaelll",
+            "endereco_empresa": "av sla",
+            "email_empresa": "aeae@gmail.com",
+            "alimentos_doados": [
+                "oleo"
             ]
         }
     }

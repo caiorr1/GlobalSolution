@@ -101,13 +101,18 @@ def make_register_empresas():
     donated_alimentos_empresas = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que pretende doar:\n')
     donated_alimentos_empresas = [donated_alimentos_empresas]
     
+    print('\nCadastro completo! Salvando...\n')
     empresas_way, empresas_insert = readjson_empresas(login_empresas)
     
     insertjson_empresas(login_empresas, nome_empresa, endereco_empresa,email_empresa, password_empresas, checkedpassword_empresas, donated_alimentos_empresas, empresas_way, empresas_insert)
-
+    
+    print('\nTudo Ok!\n')
+    
+    formatacao.title(title1='Bem vindo à area para Empresas!')
+    
 
 #função para fazer o login das empresas
-def make_login_empresas(validation_json, nome_empresa, endereco_empresa,email_empresa, donated_alimentos_empresas):
+def make_login_empresas(validation_json):
     print('\nOk... Vamos fazer o login!\n')
     
     looplogin = True
@@ -117,9 +122,8 @@ def make_login_empresas(validation_json, nome_empresa, endereco_empresa,email_em
         password_empresas = input('\nDigite a sua senha:\n')
         
         if login_empresas in validation_json and password_empresas == validation_json[login_empresas]["senha"]:
-            formatacao.lin()
-            print(f'Bem-vindo, {login_empresas}!')
-            formatacao.lin()
+            formatacao.title(title1=f'Bem vindo {login_empresas}!')
+           
             looplogin = False
             
             while True:
