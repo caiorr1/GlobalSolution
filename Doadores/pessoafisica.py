@@ -1,4 +1,4 @@
-from formatacao import lin, title
+from funcoes.formatacao import lin
 import main
 import funcoes.autodefs_pessoafisica as autodefs_pessoafisica
 

@@ -1,4 +1,4 @@
-from formatacao import title, lin
+from funcoes.formatacao import title, lin
 import json
 import funcoes.autodefs_empresas as autodefs_empresas
 

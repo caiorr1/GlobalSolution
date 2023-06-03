@@ -1,11 +1,11 @@
-import formatacao
+from funcoes.formatacao import lin, title
 import funcoes.autodefs_empresas as autodefs_empresas
 import os
 
 def get_companies():
-    formatacao.lin()
+    lin()
     print('Bem vindo à area para Empresas!')
-    formatacao.lin()
+    lin()
     
     loop = True
     while loop:

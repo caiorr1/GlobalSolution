@@ -1,5 +1,5 @@
-import formatacao
-import rodarprograma
+from funcoes.formatacao import lin, title
+import admin
 import doadores.pessoafisica as pessoafisica 
 import doadores.ongs as ongs 
 import doadores.empresas as empresas
@@ -34,7 +34,7 @@ def main_menu():
             
         elif entrance == entrance_list[3]:
             print('\nOk...Indo para área de Admin\n')
-            rodarprograma.admin_run()
+            admin.admin_run()
             loop = False
             
         elif entrance == entrance_list[4]:
@@ -50,5 +50,5 @@ if __name__ == '__main__':
         for folder in subFolder:
             print(folder)
     
-    formatacao.title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
+    title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
     main_menu()

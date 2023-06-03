@@ -1,4 +1,4 @@
-from formatacao import lin
+from funcoes.formatacao import lin
 import funcoes.autodefs_ongs as autodefs_ongs
 import funcoes.autodefs_empresas as autodefs_empresas
 
