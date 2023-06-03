@@ -44,10 +44,13 @@ def insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, c
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
-            with open('Json/ongs.json', 'w') as final_file:
-                json.dump({"ongs_cadastradas" : ongs_way}, final_file)
-            final_file.close()
-
+            with open('Json/ongs.json', 'r') as file:
+                data = json.load(file)
+        
+            data["ongs_cadastradas"].update(ongs_way)
+        
+            with open('Json/ongs.json', 'w') as file:
+                json.dump(data, file, indent=4)
 
 #funcao para carregar o json, usada para validação das ongs
 def loadjson_ongs():

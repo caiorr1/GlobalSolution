@@ -1,18 +1,11 @@
 {
-    "login": {
-        "senha": "senha",
-        "nome_ong": "nome_ong",
-        "email_pessoa": "email_pessoa",
-        "endereco_ong": "endereco_ong",
-        "alimentos_doados": "alimentos_doados"
-    },
-    "caio": {
-        "senha": "123",
-        "nome_pessoa": "caio",
-        "endereco_pessoa": "av vida nvoa",
-        "email_pessoa": "caioraf@gmail",
-        "alimentos_doados": [
-            "popqo"
-        ]
-    }
+    "pessoas_cadastradas" : {
+        "login_pessoa": {
+            "senha": "password_pessoa",
+            "nome_pessoa": "name_pessoa",
+            "email_pessoa": "email_pessoa",
+            "endereco_pessoa": "address_pessoa",
+            "alimentos_doados": "donated_alimentos_pessoa"
+        }
+    }   
 }

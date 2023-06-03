@@ -2,9 +2,9 @@
     "ongs_cadastradas": {
         "login_ong": {
             "senha": "password_ong",
-            "nome_ong": "nome_ong",
+            "nome_ong": "name_ong",
             "email_ong": "email_ong",
-            "endereco_ong": "endereco_ong",
+            "endereco_ong": "address_ong",
             "receber_alimentos": "recive_alimentos_ong"
         }
     }

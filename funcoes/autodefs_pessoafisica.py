@@ -45,9 +45,13 @@ def insertjson_pessoas(login_pessoa, name_pessoa, address_pessoa, email_pessoa, 
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
-            with open('Json/pessoas.json', 'w') as final_file:
-                json.dump({"pessoas_cadastradas" : pessoas_way}, final_file)
-            final_file.close()
+            with open('Json/pessoas.json', 'r') as file:
+                data = json.load(file)
+        
+            data["pessoas_cadastradas"].update(pessoas_way)
+        
+            with open('Json/pessoas.json', 'w') as file:
+                json.dump(data, file, indent=4)
             
             
 # funcao para carregar o json, usada para validação das pessoas fisicas
@@ -165,7 +169,7 @@ def make_login_pessoa(validation_json_pessoas):
                 elif choice2 =='3':
                     print('\nOk...Vamos adicionar alimentos a sua lista!\n')
                     
-                    with open('Json/pessoa.json', 'r+') as file2:
+                    with open('Json/pessoas.json', 'r+') as file2:
                         data_pessoas = json.load(file2)
                     
                     

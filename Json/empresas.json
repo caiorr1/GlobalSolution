@@ -3,7 +3,7 @@
         "login_empresas": {
             "senha": "checkedpassword_empresas",
             "nome_empresa": "name_empresa",
-            "endereco_empresa": "endereco_empresa",
+            "endereco_empresa": "address_empresa",
             "email_empresa": "email_empresa",
             "alimentos_doados": "donated_alimentos_empresas"
         }

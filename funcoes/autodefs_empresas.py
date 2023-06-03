@@ -53,9 +53,13 @@ def insertjson_empresas(login_empresas, name_empresa, address_empresa,email_empr
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
-            with open('Json/empresas.json', 'w') as final_file:
-                json.dump({"empresas_cadastradas" : empresas_way}, final_file)
-            final_file.close()
+            with open('Json/empresas.json', 'r') as file:
+                data = json.load(file)
+        
+            data["empresas_cadastradas"].update(empresas_way)
+        
+            with open('Json/empresas.json', 'w') as file:
+                json.dump(data, file, indent=4)
  
 
 #funcao para carregar o json, usada para validação das empresas
