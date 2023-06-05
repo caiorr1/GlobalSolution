@@ -1,22 +1,12 @@
 {
     "ongs_cadastradas": {
-        "OngBem": {
-            "senha": "123",
-            "nome_ong": "OnGdoBem",
-            "endereco_ong": "avenida vida nova",
-            "email_ong": "OngBem@gmail.com",
+        "Modelo": {
+            "senha": "Modelo",
+            "nome_ong": "Modelo",
+            "endereco_ong": "ModeloOng",
+            "email_ong": "Modelo",
             "alimentos_a_receber": [
-                "arroz,feijao,batata"
-            ]
-        },
-        "Teste": {
-            "senha": "123",
-            "nome_ong": "AAAAAA",
-            "endereco_ong": "aaaaaaa",
-            "email_ong": "AAAAA",
-            "alimentos_a_receber": [
-                "feijao",
-                "aaaaaaaaaaa"
+                "ModeloOng"
             ]
         }
     }

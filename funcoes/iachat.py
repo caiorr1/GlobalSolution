@@ -7,7 +7,7 @@ import main
 def go_to_menu():
     print('\nOk...Voltando para o menu principal\n')
     title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
-    main.main_menu()
+    main.menu_principal()
 
 
 def integracao_gpt():

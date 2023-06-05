@@ -20,7 +20,7 @@ def ongs():
             
            
         elif escolha_menu == lista_escolha_menu[0]:
-            autodefs_ongs.make_register_ongs()
+            autodefs_ongs.registrar_ongs()
         
         
         elif escolha_menu == lista_escolha_menu[1]:

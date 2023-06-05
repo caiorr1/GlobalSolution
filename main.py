@@ -12,7 +12,7 @@ def menu_principal():
     while loop:
         
         entrada = input('Digite (1) se você é uma Empresa\nDigite (2) se você é uma ONG\nDigite (3) se você é uma Pessoa Fisíca\nDigite (4) se você é ADMIN\nDigite (5) para conhecer nossa IA\nDigite (6) se deseja encerrar o programa\n')
-        lista_entrada = ['1', '2', '3', '4', '5']
+        lista_entrada = ['1', '2', '3', '4', '5', '6']
         
         if entrada not in lista_entrada:
             print('\nOpção inválida! Tente novamente.\n')   
@@ -24,12 +24,12 @@ def menu_principal():
         
         elif entrada == lista_entrada[1]:
             print('\nOk...Indo para cadastro de ONGs.\n')  
-            ongs.get_ongs()
+            ongs.ongs()
             loop = False
         
         elif entrada == lista_entrada[2]:
             print('\nOk...Indo para cadastro de Pessoas Fisícas.\n')
-            pessoafisica.get_natural_person()
+            pessoafisica.pessoasnaturais()
             loop = False
             
         elif entrada == lista_entrada[3]:
@@ -49,10 +49,7 @@ def menu_principal():
 
 if __name__ == '__main__':
     
-    main_path = './GlobalSolution'
-    for root, subFolder, filename in os.walk(main_path):
-        for folder in subFolder:
-            print(folder)
+    
     
     title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
     menu_principal()
