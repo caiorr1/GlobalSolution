@@ -16,6 +16,16 @@
                 "arroz",
                 "banana"
             ]
+        },
+        "caiocaio": {
+            "senha": "123",
+            "nome_pessoa": "cacaca",
+            "endereco_pessoa": "av popopo",
+            "email_pessoa": "pipipiipopopo@gmail.com",
+            "alimentos_doados": [
+                "arroz feijao",
+                "banana, batata, acucar"
+            ]
         }
     }
 }

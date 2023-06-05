@@ -10,7 +10,7 @@ def admin_run():
         
         choice = input('Digite (1) se deseja dar match nas listas.\nDigite (2) se deseja voltar ao menu.\n')
         
-        if choice != '1' or choice != '2':
+        if choice != '1' and choice != '2':
             print('\nOpção inválida! Tente novamente\n')
             
         elif choice == '2':

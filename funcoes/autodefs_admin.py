@@ -52,9 +52,13 @@ def main():
 
     mensagem_pergunta = {
     'role': 'user',
-    'content': 'Preciso que você faça o match nas informações das listas. Preciso saber quais ONGs batem com as Empresas e as Pessoas Fisicas. Retorne uma lista no mesmo formato que te enviei.'
+    'content':{
+        'empresas': list_empresas_string,
+        'ongs': list_ongs_string,
+        'pessoas': list_pessoas_string, 
+        'pergunta':'Preciso que você faça o match nas informações das listas. Preciso saber quais ONGs batem com as Empresas e as Pessoas Fisicas. Retorne uma lista no mesmo formato que te enviei.'
+        }    
     }
-
 
 
     # Envie as mensagens para a API de chat
