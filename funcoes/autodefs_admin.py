@@ -62,7 +62,7 @@ def main():
 
 
     # Envie as mensagens para a API de chat
-    api_key = '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'
+    api_key = 'aa'
     resposta = send_message(api_key, mensagem_pergunta['content'])
 
     # Processar a resposta da API
