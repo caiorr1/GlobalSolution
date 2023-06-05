@@ -1,4 +1,4 @@
-from funcoes.formatacao import lin, title
+from funcoes.formatacao import title
 import admin
 import doadores.pessoafisica as pessoafisica 
 import doadores.ongs as ongs 

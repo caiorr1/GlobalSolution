@@ -164,9 +164,14 @@ def make_login_empresas(validation_json):
                         new_email_empresa = input('\nDigite o novo email:\n')
                         current_empresa['email_empresa'] = new_email_empresa
                         
+                        with open('Json/empresas.json', 'r') as file:
+                            data = json.load(file)
+        
+                        data['empresas_cadastradas'] = new_cadaster_empresas
+        
                         with open('Json/empresas.json', 'w') as file:
-                            json.dump(new_cadaster_empresas, file, indent=4)
-
+                            json.dump(data, file, indent=4)
+                            
                         print('\nInformações salvas com sucesso!\n')
                         title(title1='Bem vindo à area para Empresas!')
                         
@@ -191,12 +196,11 @@ def make_login_empresas(validation_json):
                                 lista_empresas.append(new_alimento)
                                 loopstring = False
                                 print('Salvando...')
-
                         
-                            file.seek(0)  
+                        data["empresas_cadastradas"][login_empresas]["alimentos_doados"] = lista_empresas
+                        with open('Json/empresas.json', 'w') as file:
                             json.dump(data, file, indent=4)
-                            file.truncate()
-                                
+                        
                             print('\nA lista foi salva com êxito!\n')
                             
                             lin()

@@ -1,5 +1,4 @@
 from funcoes.formatacao import title, lin
-import main
 import json
 import funcoes.autodefs_empresas as autodefs_empresas
 
@@ -159,9 +158,14 @@ def make_login_pessoa(validation_json_pessoas):
                         
                         new_email_pessoa = input('\nDigite o novo email:\n')
                         current_pessoa['email_pessoa'] = new_email_pessoa
+
+                        with open('Json/pessoas.json', 'r') as file:
+                            data = json.load(file)
+                        
+                        data['pessoas_cadastradas'] = new_cadaster_pessoa
                         
                         with open('Json/pessoas.json', 'w') as file:
-                            json.dump(new_cadaster_pessoa, file, indent=4)
+                            json.dump(data, file, indent=4)
 
                         print('\nInformações salvas com sucesso!\n')
                         title(title1='Bem vindo à area para Pessoas Fisícas!')
@@ -188,9 +192,9 @@ def make_login_pessoa(validation_json_pessoas):
                                 loopstring = False
                                 print('Salvando...')
 
-                            file.seek(0)  
-                            json.dump(data_pessoas, file, indent=4)
-                            file.truncate()  
+                        data_pessoas["pessoas_cadastradas"][login_pessoa]["alimentos_doados"] = lista_pessoas
+                        with open('Json/pessoas.json', 'w') as file:
+                            json.dump(data_pessoas,file, indent=4)
                             
                             print('\nA lista foi salva com êxito!\n')
                             

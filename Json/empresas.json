@@ -6,6 +6,16 @@
             "endereco_empresa": "address_empresa",
             "email_empresa": "email_empresa",
             "alimentos_doados": "donated_alimentos_empresas"
+        },
+        "Caio": {
+            "senha": "123",
+            "nome_empresa": "Nestle",
+            "endereco_empresa": "Av Paulista",
+            "email_empresa": "caca@gmail.com",
+            "alimentos_doados": [
+                "chocolate",
+                "arroz"
+            ]
         }
     }
 }

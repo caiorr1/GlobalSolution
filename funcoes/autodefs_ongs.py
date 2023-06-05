@@ -158,8 +158,13 @@ def make_login_ongs(validation_json_ongs):
                         new_email_ong= input('\nDigite o novo email:\n')
                         current_ong['email_ong'] = new_email_ong
                         
+                        with open('Json/ongs.json', 'r') as file:
+                            data_ongs = json.load(file)
+        
+                        data_ongs["ongs_cadastradas"][login_ong] = current_ong
+        
                         with open('Json/ongs.json', 'w') as file:
-                            json.dump(current_ong, file, indent=4)
+                            json.dump(data_ongs, file, indent=4)
 
                         print('\nInformações salvas com sucesso!\n')
                         title(title1='Bem vindo à area para ONGs!')
@@ -186,9 +191,8 @@ def make_login_ongs(validation_json_ongs):
                                 loopstring = False
                                 print('Salvando...')
 
-                            file.seek(0)  
+                        with open('Json/ongs.json', 'w') as file:
                             json.dump(data_ongs, file, indent=4)
-                            file.truncate()  
                             
                             print('\nA lista foi salva com êxito!\n')
                             
