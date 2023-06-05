@@ -3,8 +3,8 @@ import json
 import funcoes.autodefs_empresas as autodefs_empresas
 
 
-#função para verificar se o usuario e o email já estão registrados   
-def is_user_registered_ongs(login_ong, email_ong):
+# função para verificar se o usuario e o email já estão registrados   
+def usuario_registrado_ongs(login_ong, email_ong):
     with open('Json/ongs.json') as file:
         ongs_json = json.load(file)
     
@@ -12,14 +12,14 @@ def is_user_registered_ongs(login_ong, email_ong):
     
     for login, email_validation_ong in ongs_way.items():
         if login == login_ong:
-            return "USER_EXISTS"
+            return "usuario_existe"
         elif "email_ong" in email_validation_ong and email_validation_ong["email_ong"] == email_ong:
-            return "EMAIL_EXISTS"
+            return "email_existe"
     
     return None
 
 
-#função para ler o json das ongs   
+# função para ler o json das ongs   
 def readjson_ongs(login_ong):
     with open ('Json/ongs.json') as file:
         ongs_json = json.load(file)
@@ -31,7 +31,7 @@ def readjson_ongs(login_ong):
     return ongs_way, ongs_insert
 
 
-#função para inserir os dados no json das ongs
+# função para inserir os dados no json das ongs
 def insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, checkedpassord_ong, recived_alimentos_ong, ongs_way, ongs_insert):
     if not ongs_insert:
         if password_ong == checkedpassord_ong:
@@ -52,7 +52,7 @@ def insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, c
             with open('Json/ongs.json', 'w') as file:
                 json.dump(data, file, indent=4)
 
-#funcao para carregar o json, usada para validação das ongs
+# funcao para carregar o json, usada para validação das ongs
 def loadjson_ongs():
     with open('Json/ongs.json') as arquivo_validado:
         validation_file_ongs = json.load(arquivo_validado)
@@ -62,7 +62,7 @@ def loadjson_ongs():
     return validation_json_ongs
 
 
-#função para fazer o cadastro das ongs                           
+# função para fazer o cadastro das ongs                           
 def make_register_ongs():
     print('Ok... Vamos cadastrar sua ONG!\n')
     
@@ -71,11 +71,11 @@ def make_register_ongs():
         login_ong = input('Digite seu nome de usuário:\n')
         email_ong = input('\nDigite o seu email:\n')
         
-        # Verifica se o usuário já está cadastrado no JSON
-        result_ong = is_user_registered_ongs(login_ong, email_ong)
-        if result_ong == "USER_EXISTS":
+        # verifica se o usuário já está cadastrado no JSON
+        result_ong = usuario_registrado_ongs(login_ong, email_ong)
+        if result_ong == "usuario_existe":
             print('\nUsuário já cadastrado. Por favor, escolha outro nome de usuário.\n')
-        elif result_ong == "EMAIL_EXISTS":
+        elif result_ong == "email_existe":
             print('\nE-mail já cadastrado. Por favor, utilize outro e-mail.\n')
         else:
             break

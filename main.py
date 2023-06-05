@@ -1,10 +1,10 @@
 from funcoes.formatacao import title
-import admin
+import funcoes.admin as admin
 import Doadores.pessoafisica as pessoafisica 
 import Doadores.ongs as ongs 
 import Doadores.empresas as empresas
 import os
-import iachat
+import funcoes.iachat as iachat
 
 
 #this function makes the first contact with user, let him choose what way he wants
@@ -12,7 +12,7 @@ def main_menu():
     loop = True
     while loop:
         
-        entrance = input(' Digite (1) se você é uma Empresa\n Digite (2) se você é uma ONG\n Digite (3) se você é uma Pessoa Fisíca\n Digite (4) se você é ADMIN\nDigite (5) para conhecer nossa IA\nDigite (6) se deseja encerrar o programa\n')
+        entrance = input('Digite (1) se você é uma Empresa\nDigite (2) se você é uma ONG\nDigite (3) se você é uma Pessoa Fisíca\nDigite (4) se você é ADMIN\nDigite (5) para conhecer nossa IA\nDigite (6) se deseja encerrar o programa\n')
         entrance_list = ['1', '2', '3', '4', '5']
         
         if entrance not in entrance_list:

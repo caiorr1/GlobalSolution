@@ -11,17 +11,17 @@ def go_to_menu():
 
 
 #função para verificar se o usuario e o email já estão registrados   
-def is_user_registered_empresas(login_empresas,email_empresa):
+def usuario_cadastrado(login_empresas,email_empresa):
     with open('Json/empresas.json') as file:
         empresas_json = json.load(file)
     
     empresas_way = empresas_json["empresas_cadastradas"]
     
-    for login, email_validation_empresas in empresas_way.items():
+    for login, email_empresas in empresas_way.items():
         if login == login_empresas:
-            return "USER_EXISTS"
-        elif "email_empresa" in email_validation_empresas and email_validation_empresas["email_empresa"] == email_empresa:
-            return "EMAIL_EXISTS"
+            return "usuario_existe"
+        elif "email_empresa" in email_empresas and email_empresas["email_empresa"] == email_empresa:
+            return "email_existe"
     
     return None
 
@@ -73,19 +73,19 @@ def loadjson_empresas():
 
 
 #função para fazer o registro das empresas
-def make_register_empresas():
+def registrar_empresas():
     print('Ok... Vamos cadastrar sua empresa!\n')
     
-    looplogin = True
-    while looplogin:  
-        login_empresas = input('Digite seu nome de usuário:\n')
+    loop = True
+    while loop:  
+        usuario_empresas = input('Digite seu nome de usuário:\n')
         email_empresa = input('\nDigite o seu email:\n')
         
-        # Verifica se o usuário já está cadastrado no JSON
-        result = is_user_registered_empresas(login_empresas, email_empresa)
-        if result == "USER_EXISTS":
+        
+        validando = usuario_cadastrado(usuario_empresas, email_empresa)
+        if validando == "usuario_existe":
             print('\nUsuário já cadastrado. Por favor, escolha outro nome de usuário.\n')
-        elif result == "EMAIL_EXISTS":
+        elif validando == "email_existe":
             print('\nE-mail já cadastrado. Por favor, utilize outro e-mail.\n')
         else:
             break
@@ -106,9 +106,9 @@ def make_register_empresas():
     donated_alimentos_empresas = [donated_alimentos_empresas]
     
     print('\nCadastro completo! Salvando...\n')
-    empresas_way, empresas_insert = readjson_empresas(login_empresas)
+    empresas_way, empresas_insert = readjson_empresas(usuario_empresas)
     
-    insertjson_empresas(login_empresas, name_empresa, address_empresa,email_empresa, password_empresas, checkedpassword_empresas, donated_alimentos_empresas, empresas_way, empresas_insert)
+    insertjson_empresas(usuario_empresas, name_empresa, address_empresa,email_empresa, password_empresas, checkedpassword_empresas, donated_alimentos_empresas, empresas_way, empresas_insert)
     
     print('\nTudo Ok!\n')
     
