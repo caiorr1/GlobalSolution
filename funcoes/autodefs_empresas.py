@@ -91,7 +91,7 @@ def make_register_empresas():
             break
             
     name_empresa = input('\nDigite o nome da sua empresa:\n')
-    address_empresa = input('\nDigite o endereço da sua empresa:\n')
+    address_empresa = input('\nDigite o endereço da sua empresa:\n').lower()
     
     loop2 = True
     while loop2:
@@ -102,7 +102,7 @@ def make_register_empresas():
         elif password_empresas == checkedpassword_empresas:
             break 
             
-    donated_alimentos_empresas = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que pretende doar:\n')
+    donated_alimentos_empresas = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que pretende doar:\n').lower().replace(" ", ",")
     donated_alimentos_empresas = [donated_alimentos_empresas]
     
     print('\nCadastro completo! Salvando...\n')
@@ -158,7 +158,7 @@ def make_login_empresas(validation_json):
                         new_name_empresas = input('Digite o novo nome da empresa:\n')
                         current_empresa['nome_empresa'] = new_name_empresas
                         
-                        new_address_empresas = input('\nDigite o novo endereço:\n')
+                        new_address_empresas = input('\nDigite o novo endereço:\n').lower()
                         current_empresa['endereco_empresa'] = new_address_empresas
                         
                         new_email_empresa = input('\nDigite o novo email:\n')
@@ -188,7 +188,7 @@ def make_login_empresas(validation_json):
                         loopstring = True
                         while loopstring:
     
-                            new_alimento = input('Digite os alimentos que deseja adicionar na lista.\n')
+                            new_alimento = input('Digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",")
                             if new_alimento.isnumeric():
                                 print('\nDigite alimentos.\n')
 

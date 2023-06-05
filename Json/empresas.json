@@ -1,20 +1,21 @@
 {
     "empresas_cadastradas": {
-        "login_empresas": {
-            "senha": "checkedpassword_empresas",
-            "nome_empresa": "name_empresa",
-            "endereco_empresa": "address_empresa",
-            "email_empresa": "email_empresa",
-            "alimentos_doados": "donated_alimentos_empresas"
-        },
-        "Caio": {
+        "User": {
             "senha": "123",
-            "nome_empresa": "Nestle",
-            "endereco_empresa": "Av Paulista",
-            "email_empresa": "caca@gmail.com",
+            "nome_empresa": "Paulista",
+            "endereco_empresa": "avenida pipipi",
+            "email_empresa": "pati@gmail.com",
             "alimentos_doados": [
-                "chocolate",
-                "arroz"
+                "arroz,feijao,batata"
+            ]
+        },
+        "Teste": {
+            "senha": "123",
+            "nome_empresa": "Testando",
+            "endereco_empresa": "av popopo",
+            "email_empresa": "teste@gmail.com",
+            "alimentos_doados": [
+                "feijao"
             ]
         }
     }

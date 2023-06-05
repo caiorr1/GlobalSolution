@@ -1,9 +1,10 @@
 from funcoes.formatacao import title
 import admin
-import doadores.pessoafisica as pessoafisica 
-import doadores.ongs as ongs 
-import doadores.empresas as empresas
+import Doadores.pessoafisica as pessoafisica 
+import Doadores.ongs as ongs 
+import Doadores.empresas as empresas
 import os
+import iachat
 
 
 #this function makes the first contact with user, let him choose what way he wants
@@ -11,7 +12,7 @@ def main_menu():
     loop = True
     while loop:
         
-        entrance = input(' Digite (1) se você é uma Empresa\n Digite (2) se você é uma ONG\n Digite (3) se você é uma Pessoa Fisíca\n Digite (4) se você é ADMIN\n Digite (5) se deseja encerrar o programa\n')
+        entrance = input(' Digite (1) se você é uma Empresa\n Digite (2) se você é uma ONG\n Digite (3) se você é uma Pessoa Fisíca\n Digite (4) se você é ADMIN\nDigite (5) para conhecer nossa IA\nDigite (6) se deseja encerrar o programa\n')
         entrance_list = ['1', '2', '3', '4', '5']
         
         if entrance not in entrance_list:
@@ -38,6 +39,10 @@ def main_menu():
             loop = False
             
         elif entrance == entrance_list[4]:
+            print('\nOk...Indo para área da IA.\n')
+            iachat.send_to_gpt()
+            
+        elif entrance == entrance_list[5]:
             print('\nOk...Encerrando o programa.\n')
             quit()
             

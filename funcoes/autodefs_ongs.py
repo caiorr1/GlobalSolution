@@ -81,7 +81,7 @@ def make_register_ongs():
             break
             
     name_ong = input('\nDigite o nome da sua ONG:\n')
-    address_ong = input('\nDigite o endereço da sua ONG:\n')
+    address_ong = input('\nDigite o endereço da sua ONG:\n').lower()
     
     loop2 = True
     while loop2:
@@ -92,7 +92,7 @@ def make_register_ongs():
         elif password_ong == checkedpassord_ong:
             break 
             
-    recived_alimentos_ong = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que gostaria de receber:\n')
+    recived_alimentos_ong = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que gostaria de receber:\n').lower().replace(" ", ",")
     recived_alimentos_ong = [recived_alimentos_ong]
     
     print('\nCadastro completo! Salvando...\n')
@@ -152,7 +152,7 @@ def make_login_ongs(validation_json_ongs):
                         new_name_ong = input('Digite o novo nome da ONG:\n')
                         current_ong['nome_ong'] = new_name_ong
                         
-                        new_address_ong = input('\nDigite o novo endereço:\n')
+                        new_address_ong = input('\nDigite o novo endereço:\n').lower()
                         current_ong['endereco_ong'] = new_address_ong
                         
                         new_email_ong= input('\nDigite o novo email:\n')
@@ -182,7 +182,7 @@ def make_login_ongs(validation_json_ongs):
                         loopstring = True
                         while loopstring:
     
-                            new_alimento = input('Digite os alimentos que deseja adicionar na lista.\n')
+                            new_alimento = input('Digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",")
                             if new_alimento.isnumeric():
                                 print('\nDigite alimentos.\n')
 

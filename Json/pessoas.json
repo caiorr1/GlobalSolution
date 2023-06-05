@@ -1,30 +1,12 @@
 {
     "pessoas_cadastradas": {
-        "login_pessoa": {
-            "senha": "password_pessoa",
-            "nome_pessoa": "name_pessoa",
-            "email_pessoa": "email_pessoa",
-            "endereco_pessoa": "address_pessoa",
-            "alimentos_doados": "donated_alimentos_pessoa"
-        },
-        "caio": {
+        "Pedro": {
             "senha": "123",
-            "nome_pessoa": "caca",
-            "endereco_pessoa": "av faria lima",
-            "email_pessoa": "caio@gmail.com",
+            "nome_pessoa": "Pedro",
+            "endereco_pessoa": "avenida paulista",
+            "email_pessoa": "pedrocas@gmail.com",
             "alimentos_doados": [
-                "arroz",
-                "banana"
-            ]
-        },
-        "caiocaio": {
-            "senha": "123",
-            "nome_pessoa": "cacaca",
-            "endereco_pessoa": "av popopo",
-            "email_pessoa": "pipipiipopopo@gmail.com",
-            "alimentos_doados": [
-                "arroz feijao",
-                "banana, batata, acucar"
+                "arroz,feijao,batata"
             ]
         }
     }

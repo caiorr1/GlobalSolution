@@ -17,6 +17,6 @@ def admin_run():
             autodefs_empresas.go_to_menu()
             
         elif choice == '1':
-            print('Ok... Enviando as listas!')
-            autodefs_admin.send_message()
-            autodefs_admin.main()
+            print('\nOk... Enviando as listas!\n')
+            autodefs_admin.encontrar_coincidencias_empresas_ongs()
+            autodefs_admin.encontrar_coincidencias_pf_ong()

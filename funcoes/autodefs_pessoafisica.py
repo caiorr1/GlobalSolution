@@ -81,8 +81,8 @@ def make_register_pessoa():
         else:
             break
             
-    name_pessoa = input('\nDigite o seu nome :\n')
-    address_pessoa = input('\nDigite o seu endereço :\n')
+    name_pessoa = input('\nDigite o seu nome:\n')
+    address_pessoa = input('\nDigite o seu endereço:\n').lower()
     
     loop2 = True
     while loop2:
@@ -93,7 +93,7 @@ def make_register_pessoa():
         elif password_pessoa == checkedpassord_pessoa:
             break 
             
-    donated_alimentos_pessoa = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que gostaria de doar:\n')
+    donated_alimentos_pessoa = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que gostaria de doar:\n').lower().replace(" ", ",")
     donated_alimentos_pessoa = [donated_alimentos_pessoa]
     
     print('\nCadastro completo! Salvando...\n')
@@ -153,7 +153,7 @@ def make_login_pessoa(validation_json_pessoas):
                         new_name_pessoa = input('Digite o seu novo nome:\n')
                         current_pessoa['nome_pessoa'] = new_name_pessoa
                         
-                        new_address_pessoa = input('\nDigite o novo endereço:\n')
+                        new_address_pessoa = input('\nDigite o novo endereço:\n').lower()
                         current_pessoa['endereco_pessoa'] = new_address_pessoa
                         
                         new_email_pessoa = input('\nDigite o novo email:\n')

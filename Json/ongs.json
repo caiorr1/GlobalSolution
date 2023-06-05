@@ -1,20 +1,21 @@
 {
     "ongs_cadastradas": {
-        "login_ong": {
-            "senha": "password_ong",
-            "nome_ong": "name_ong",
-            "email_ong": "email_ong",
-            "endereco_ong": "address_ong",
-            "receber_alimentos": "recive_alimentos_ong"
-        },
-        "caio": {
+        "OngBem": {
             "senha": "123",
-            "nome_ong": "Sementes do Mal",
-            "endereco_ong": "av vida nova",
-            "email_ong": "caiorrodrigues@gmail.com",
+            "nome_ong": "OnGdoBem",
+            "endereco_ong": "avenida vida nova",
+            "email_ong": "OngBem@gmail.com",
             "receber_alimentos": [
-                "Banana",
-                "arroz"
+                "arroz,feijao,batata"
+            ]
+        },
+        "Teste": {
+            "senha": "123",
+            "nome_ong": "Testezinho",
+            "endereco_ong": "av teste 123",
+            "email_ong": "testando123@gmail.com",
+            "receber_alimentos": [
+                "feijao"
             ]
         }
     }
