@@ -94,7 +94,7 @@ def registrar_pessoafisica():
             break 
             
     alimentos_a_doar = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que gostaria de doar:\n').lower().replace(" ", ",")
-    alimentos_a_doar = [alimentos_a_doar]
+    alimentos_a_doar = alimentos_a_doar.split(",")
     
     print('\nCadastro completo! Salvando...\n')
     pessoas_way, pessoas_insert = lerjson_pessoasfisicas(login_pessoa)
@@ -183,7 +183,7 @@ def login_pessoafisica(json_validado_pessoasfisicas):
                         loopstring = True
                         while loopstring:
     
-                            novo_alimento = input('Digite os alimentos que deseja adicionar na lista.\n')
+                            novo_alimento = input('Por favor, digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",").split(",")
                             if novo_alimento.isnumeric():
                                 print('\nDigite alimentos.\n')
 

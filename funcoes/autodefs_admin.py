@@ -17,21 +17,21 @@ def match_empresas():
 
     for empresa, empresa_dados in empresas.items():
         endereco_empresa = empresa_dados["endereco_empresa"]
-        alimentos_doados = empresa_dados.get("alimentos_doados", [])
+        alimentos_a_doar = empresa_dados.get("alimentos_a_doar", [])
 
         for ong, ong_info in ongs.items():
             endereco_ong = ong_info["endereco_ong"]
-            alimentos_recebidos = ong_info.get("receber_alimentos", [])
+            alimentos_a_receber = ong_info.get("alimentos_a_receber", [])
 
-            if set(alimentos_doados) & set(alimentos_recebidos):
+            if set(alimentos_a_doar) & set(alimentos_a_receber):
                 match_info.append(
                     {
                         "empresa": empresa,
                         "ong": ong,
                         "endereco_empresa": endereco_empresa,
                         "endereco_ong": endereco_ong,
-                        "alimentos_doados": alimentos_doados,
-                        "alimentos_recebidos": alimentos_recebidos,
+                        "alimentos_a_doar": alimentos_a_doar,
+                        "alimentos_a_receber": alimentos_a_receber,
                     }
                 )
 
@@ -45,8 +45,8 @@ def match_empresas():
             print("ONG:", match_info["ong"])
             print("Endereço Empresa:", match_info["endereco_empresa"])
             print("Endereço ONG:", match_info["endereco_ong"])
-            print("Alimentos a serem doados:", match_info["alimentos_doados"])
-            print("Alimentos a serem recebidos:", match_info["alimentos_recebidos"])
+            print("Alimentos a serem doados:", match_info["alimentos_a_doar"])
+            print("Alimentos a serem recebidos:", match_info["alimentos_a_receber"])
             print()
         lin()    
             
@@ -66,21 +66,21 @@ def match_pessoafisica():
 
     for pessoa, pessoa_dados in pessoas.items():
         endereco_pessoa = pessoa_dados["endereco_pessoa"]
-        alimentos_doados = pessoa_dados.get("alimentos_doados", [])
+        alimentos_a_doar = pessoa_dados.get("alimentos_a_doar", [])
 
         for ong, ong_info in ongs.items():
             endereco_ong = ong_info["endereco_ong"]
-            alimentos_recebidos = ong_info.get("receber_alimentos", [])
+            alimentos_a_receber = ong_info.get("alimentos_a_receber", [])
 
-            if set(alimentos_doados) & set(alimentos_recebidos):
+            if set(alimentos_a_doar) & set(alimentos_a_receber):
                 match_info.append(
                     {
                         "pessoa": pessoa,
                         "ong": ong,
                         "endereco_pessoa": endereco_pessoa,
                         "endereco_ong": endereco_ong,
-                        "alimentos_doados": alimentos_doados,
-                        "alimentos_recebidos": alimentos_recebidos,
+                        "alimentos_a_doar": alimentos_a_doar,
+                        "alimentos_a_receber": alimentos_a_receber,
                     }
                 )
 
@@ -94,8 +94,8 @@ def match_pessoafisica():
             print("ONG:", match_print["ong"])
             print("Endereço Pessoa:", match_print["endereco_pessoa"])
             print("Endereço ONG:", match_print["endereco_ong"])
-            print("Alimentos a serem doados:", match_print["alimentos_doados"])
-            print("Alimentos a serem recebidos:", match_print["alimentos_recebidos"])
+            print("Alimentos a serem doados:", match_print["alimentos_a_doar"])
+            print("Alimentos a serem recebidos:", match_print["alimentos_a_receber"])
             print()
         lin()
 

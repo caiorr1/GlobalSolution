@@ -103,7 +103,7 @@ def registrar_empresas():
             break 
             
     alimentos_a_doar = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que pretende doar:\n').lower().replace(" ", ",")
-    alimentos_a_doar = [alimentos_a_doar]
+    alimentos_a_doar =  alimentos_a_doar.split(",")
     
     print('\nCadastro completo! Salvando...\n')
     empresas_way, empresas_insert = ler_json(usuario_empresas)
@@ -188,7 +188,7 @@ def fazer_login(json_validado):
                         looppp = True
                         while looppp:
     
-                            new_alimento = input('Por Favor, digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",")
+                            new_alimento = input('Por Favor, digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",").split(",")
                             if new_alimento.isnumeric():
                                 print('\nDigite alimentos.\n')
 

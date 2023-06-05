@@ -6,7 +6,6 @@ import Doadores.empresas as empresas
 import os
 import funcoes.iachat as iachat
 
-
 def menu_principal():
     loop = True
     while loop:
