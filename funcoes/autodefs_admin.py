@@ -2,7 +2,7 @@ import json
 from funcoes.formatacao import lin
 
 
-def encontrar_coincidencias_empresas_ongs():
+def match_empresas():
     # Carregar os arquivos JSON
     with open('Json/ongs.json', 'r') as ongs_file:
         ongs_json = json.load(ongs_file)
@@ -13,18 +13,18 @@ def encontrar_coincidencias_empresas_ongs():
     ongs = ongs_json["ongs_cadastradas"]
     empresas = empresas_json["empresas_cadastradas"]
 
-    coincidencias = []
+    match_info = []
 
-    for empresa, empresa_info in empresas.items():
-        endereco_empresa = empresa_info["endereco_empresa"]
-        alimentos_doados = empresa_info.get("alimentos_doados", [])
+    for empresa, empresa_dados in empresas.items():
+        endereco_empresa = empresa_dados["endereco_empresa"]
+        alimentos_doados = empresa_dados.get("alimentos_doados", [])
 
         for ong, ong_info in ongs.items():
             endereco_ong = ong_info["endereco_ong"]
             alimentos_recebidos = ong_info.get("receber_alimentos", [])
 
             if set(alimentos_doados) & set(alimentos_recebidos):
-                coincidencias.append(
+                match_info.append(
                     {
                         "empresa": empresa,
                         "ong": ong,
@@ -35,23 +35,23 @@ def encontrar_coincidencias_empresas_ongs():
                     }
                 )
 
-    if len(coincidencias) == 0:
-        print("\nNenhuma coincidência encontrada.\n")
+    if len(match_info) == 0:
+        print("\nNenhum informação cruzada.\n")
     else:
         lin()
-        print("Coincidências entre ONGs e Empresas encontradas:\n")
-        for coincidencia in coincidencias:
-            print("Empresa:", coincidencia["empresa"])
-            print("ONG:", coincidencia["ong"])
-            print("Endereço Empresa:", coincidencia["endereco_empresa"])
-            print("Endereço ONG:", coincidencia["endereco_ong"])
-            print("Alimentos a serem doados:", coincidencia["alimentos_doados"])
-            print("Alimentos a serem recebidos:", coincidencia["alimentos_recebidos"])
+        print("Informações cruzadas entre ONGs e Empresas\n")
+        for match_info in match_info:
+            print("Empresa:", match_info["empresa"])
+            print("ONG:", match_info["ong"])
+            print("Endereço Empresa:", match_info["endereco_empresa"])
+            print("Endereço ONG:", match_info["endereco_ong"])
+            print("Alimentos a serem doados:", match_info["alimentos_doados"])
+            print("Alimentos a serem recebidos:", match_info["alimentos_recebidos"])
             print()
         lin()    
             
                  
-def encontrar_coincidencias_pf_ong():
+def match_pessoafisica():
      # Carregar os arquivos JSON
     with open('Json/ongs.json', 'r') as ongs_file:
         ongs_json = json.load(ongs_file)
@@ -62,18 +62,18 @@ def encontrar_coincidencias_pf_ong():
     ongs = ongs_json["ongs_cadastradas"]
     pessoas = pessoas_json["pessoas_cadastradas"]
 
-    coincidencias = []
+    match_info = []
 
-    for pessoa, pessoa_info in pessoas.items():
-        endereco_pessoa = pessoa_info["endereco_pessoa"]
-        alimentos_doados = pessoa_info.get("alimentos_doados", [])
+    for pessoa, pessoa_dados in pessoas.items():
+        endereco_pessoa = pessoa_dados["endereco_pessoa"]
+        alimentos_doados = pessoa_dados.get("alimentos_doados", [])
 
         for ong, ong_info in ongs.items():
             endereco_ong = ong_info["endereco_ong"]
             alimentos_recebidos = ong_info.get("receber_alimentos", [])
 
             if set(alimentos_doados) & set(alimentos_recebidos):
-                coincidencias.append(
+                match_info.append(
                     {
                         "pessoa": pessoa,
                         "ong": ong,
@@ -84,18 +84,18 @@ def encontrar_coincidencias_pf_ong():
                     }
                 )
 
-    if len(coincidencias) == 0:
-        print("\nNenhuma coincidência encontrada.\n")
+    if len (match_info) == 0:
+        print("\nNenhum informação cruzada.\n")
     else:
         lin()
-        print("Coincidências entre ONGs e Pessoas Fisicas encontradas:\n")
-        for coincidencia in coincidencias:
-            print("Pessoa:", coincidencia["pessoa"])
-            print("ONG:", coincidencia["ong"])
-            print("Endereço Pessoa:", coincidencia["endereco_pessoa"])
-            print("Endereço ONG:", coincidencia["endereco_ong"])
-            print("Alimentos a serem doados:", coincidencia["alimentos_doados"])
-            print("Alimentos a serem recebidos:", coincidencia["alimentos_recebidos"])
+        print("Informações cruzadas entre ONGs e Pessoas Fisicas:\n")
+        for match_print in match_info:
+            print("Pessoa:", match_print["pessoa"])
+            print("ONG:", match_print["ong"])
+            print("Endereço Pessoa:", match_print["endereco_pessoa"])
+            print("Endereço ONG:", match_print["endereco_ong"])
+            print("Alimentos a serem doados:", match_print["alimentos_doados"])
+            print("Alimentos a serem recebidos:", match_print["alimentos_recebidos"])
             print()
         lin()
 

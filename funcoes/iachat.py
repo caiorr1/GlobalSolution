@@ -10,7 +10,7 @@ def go_to_menu():
     main.main_menu()
 
 
-def send_to_gpt():
+def integracao_gpt():
     
     with open('funcoes/api_key.txt', 'r') as file:
         api_key = file.read().strip()
@@ -29,16 +29,16 @@ def send_to_gpt():
 
         elif choice == choice_list[0]:
             ambiente_user = input("\nDigite o lugar que você gostaria de plantar. Especifique sobre condições climáticas, contato com a iluminação natural, etc. Toda e qualquer tipo de informação que pode ajudar a nossa IA a entender o ambiente:\n")
-            messages = [{"role": "user", "content": f"Qual o alimento mais viável para ser plantado no local: {ambiente_user}"}]
+            mensagem_para_gpt = [{"role": "user", "content": f"Qual o alimento mais viável para ser plantado no local: {ambiente_user}"}]
 
         elif choice == choice_list[1]:
             alimento_user = input("\nDigite o alimento que gostaria de plantar e a nossa IA falará o melhor ambiente para ser plantado:\n")
-            messages = [{"role": "user", "content": f"Qual o melhor local para ser plantado {alimento_user}"}]
+            mensagem_para_gpt = [{"role": "user", "content": f"Qual o melhor local para ser plantado {alimento_user}"}]
 
         elif choice == choice_list[2]:
             agri_sustentavel = input("\nVocê quer saber o que é agricultura sustentável? Digite (S) para sim ou (N) para não.\n")
             if agri_sustentavel.upper() == 'S':
-                messages = [{"role": "user", "content": "O que é agricultura sustentável? Explique e me de exemplos."}]
+                mensagem_para_gpt = [{"role": "user", "content": "O que é agricultura sustentável? Explique e me de exemplos."}]
             else:
                 print('\nOk... Indo para o menu principal!\n')
                 go_to_menu()
@@ -51,7 +51,7 @@ def send_to_gpt():
 
         payload = {
             "model": "gpt-3.5-turbo",
-            "messages": messages,
+            "messages": mensagem_para_gpt,
             "temperature": 1.0,
             "top_p": 1.0,
             "n": 1,
@@ -66,12 +66,12 @@ def send_to_gpt():
         }
 
         response = requests.post(URL, headers=headers, json=payload)
-        data = json.loads(response.content)
+        dados_reposta = json.loads(response.content)
 
         # Acessar a resposta da API e corrigir o texto truncado
-        answer = data['choices'][0]['message']['content']
-        answer = answer.replace('\n', '')
+        resposta_definitiva = dados_reposta['choices'][0]['message']['content']
+        resposta_definitiva = resposta_definitiva.replace('\n', '')
 
-        print(f'\nSeedS: {answer}\n')
+        print(f'\nSeedS: {resposta_definitiva}\n')
         title(title1='- Bem Vindo a área da Inteligência Artificial! -')
 

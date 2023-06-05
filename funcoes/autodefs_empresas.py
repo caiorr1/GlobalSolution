@@ -7,7 +7,7 @@ import json
 def go_to_menu():
     print('\nOk...Voltando para o menu principal\n')
     title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
-    main.main_menu()
+    main.menu_principal()
 
 
 #função para verificar se o usuario e o email já estão registrados   
@@ -27,7 +27,7 @@ def usuario_cadastrado(login_empresas,email_empresa):
 
 
 #função para ler o json das empresas
-def readjson_empresas(login_empresas):
+def ler_json(login_empresas):
     with open('Json/empresas.json') as file:
         empresas_json = json.load(file)
 
@@ -41,7 +41,7 @@ def readjson_empresas(login_empresas):
 
 
 #função para inserir os dados no json das empresas
-def insertjson_empresas(login_empresas, name_empresa, address_empresa,email_empresa, password_empresas, checkedpassword_empresas, donated_alimentos_empresas, empresas_way, empresas_insert):
+def inserir_json(login_empresas, name_empresa, address_empresa,email_empresa, password_empresas, checkedpassword_empresas, alimentos_a_doar, empresas_way, empresas_insert):
     if not empresas_insert:
         if password_empresas == checkedpassword_empresas:
             empresas_way[login_empresas] = {
@@ -49,7 +49,7 @@ def insertjson_empresas(login_empresas, name_empresa, address_empresa,email_empr
                 "nome_empresa" : name_empresa,
                 "endereco_empresa" : address_empresa,
                 "email_empresa" : email_empresa,
-                "alimentos_doados" : donated_alimentos_empresas,
+                "alimentos_a_doar" : alimentos_a_doar,
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
@@ -63,13 +63,13 @@ def insertjson_empresas(login_empresas, name_empresa, address_empresa,email_empr
  
 
 #funcao para carregar o json, usada para validação das empresas
-def loadjson_empresas():
+def carregar_json():
     with open('Json/empresas.json') as arquivo_validado:
-        validation_file = json.load(arquivo_validado)
+        arquivo_validado = json.load(arquivo_validado)
         
-        validation_json = validation_file["empresas_cadastradas"]
+        json_validado = arquivo_validado["empresas_cadastradas"]
     
-    return validation_json
+    return json_validado
 
 
 #função para fazer o registro das empresas
@@ -102,13 +102,13 @@ def registrar_empresas():
         elif password_empresas == checkedpassword_empresas:
             break 
             
-    donated_alimentos_empresas = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que pretende doar:\n').lower().replace(" ", ",")
-    donated_alimentos_empresas = [donated_alimentos_empresas]
+    alimentos_a_doar = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que pretende doar:\n').lower().replace(" ", ",")
+    alimentos_a_doar = [alimentos_a_doar]
     
     print('\nCadastro completo! Salvando...\n')
-    empresas_way, empresas_insert = readjson_empresas(usuario_empresas)
+    empresas_way, empresas_insert = ler_json(usuario_empresas)
     
-    insertjson_empresas(usuario_empresas, name_empresa, address_empresa,email_empresa, password_empresas, checkedpassword_empresas, donated_alimentos_empresas, empresas_way, empresas_insert)
+    inserir_json(usuario_empresas, name_empresa, address_empresa,email_empresa, password_empresas, checkedpassword_empresas, alimentos_a_doar, empresas_way, empresas_insert)
     
     print('\nTudo Ok!\n')
     
@@ -116,7 +116,7 @@ def registrar_empresas():
     
 
 #função para fazer o login das empresas
-def make_login_empresas(validation_json):
+def fazer_login(json_validado):
     print('\nOk... Vamos fazer o login!\n')
     
     looplogin = True
@@ -125,7 +125,7 @@ def make_login_empresas(validation_json):
         login_empresas = input('Digite o seu usuário:\n')
         password_empresas = input('\nDigite a sua senha:\n')
         
-        if login_empresas in validation_json and password_empresas == validation_json[login_empresas]["senha"]:
+        if login_empresas in json_validado and password_empresas == json_validado[login_empresas]["senha"]:
             title(title1=f'Bem vindo {login_empresas}!')
            
             looplogin = False
@@ -136,70 +136,69 @@ def make_login_empresas(validation_json):
                 if choice2 == '1':
                     print('\nOk... Vamos exibir suas informações!\n')
                     
-                    if login_empresas in validation_json:
+                    if login_empresas in json_validado:
                         print('Informações da empresa:')
-                        print(f'Nome: {validation_json[login_empresas]["nome_empresa"]}')
-                        print(f'Endereço: {validation_json[login_empresas]["endereco_empresa"]}')
-                        print(f'Contato: {validation_json[login_empresas]["email_empresa"]}')
-                        print(f'Alimentos doados: {validation_json[login_empresas]["alimentos_doados"]}')
+                        print(f'Nome: {json_validado[login_empresas]["nome_empresa"]}')
+                        print(f'Endereço: {json_validado[login_empresas]["endereco_empresa"]}')
+                        print(f'Contato: {json_validado[login_empresas]["email_empresa"]}')
+                        print(f'Alimentos doados: {json_validado[login_empresas]["alimentos_a_doar"]}')
                     else:
-                        print('Empresa não encontrada.')
+                        print('\nEmpresa não encontrada.\n')
                     
                 elif choice2 == '2':
-                    print('\nOk... Vamos alterar informações!\n')
+                    print('\nVamos alterar informações!\n')
                     
-                    new_cadaster_empresas = validation_json
+                    novo_cadastro = json_validado
                     
-                    if login_empresas in new_cadaster_empresas:
+                    if login_empresas in novo_cadastro:
                         print('\nVamos refazer o seu cadastro!\n')
                         
-                        current_empresa = new_cadaster_empresas[login_empresas]
+                        empresa_atual = novo_cadastro[login_empresas]
                         
-                        new_name_empresas = input('Digite o novo nome da empresa:\n')
-                        current_empresa['nome_empresa'] = new_name_empresas
+                        novo_nome = input('Escreva o novo nome da empresa:\n')
+                        empresa_atual['nome_empresa'] = novo_nome
                         
-                        new_address_empresas = input('\nDigite o novo endereço:\n').lower()
-                        current_empresa['endereco_empresa'] = new_address_empresas
+                        novo_endereco = input('\nEscreva o novo endereço:\n').lower()
+                        empresa_atual['endereco_empresa'] = novo_endereco
                         
-                        new_email_empresa = input('\nDigite o novo email:\n')
-                        current_empresa['email_empresa'] = new_email_empresa
+                        novo_email = input('\nEscreva o novo email:\n')
+                        empresa_atual['email_empresa'] = novo_email
                         
                         with open('Json/empresas.json', 'r') as file:
-                            data = json.load(file)
+                            novos_dados = json.load(file)
         
-                        data['empresas_cadastradas'] = new_cadaster_empresas
+                        novos_dados['empresas_cadastradas'] = novo_cadastro
         
                         with open('Json/empresas.json', 'w') as file:
-                            json.dump(data, file, indent=4)
+                            json.dump(novos_dados, file, indent=4)
                             
-                        print('\nInformações salvas com sucesso!\n')
+                        print('\nInformações salvas!\n')
                         title(title1='Bem vindo à area para Empresas!')
                         
                 elif choice2 =='3':
-                    print('\nOk...Vamos adicionar alimentos a sua lista!\n')
+                    print('\nVamos adicionar alimentos a sua lista!\n')
                     
                     with open('Json/empresas.json', 'r+') as file2:
-                        data = json.load(file2)
+                        caminho_empresas = json.load(file2)
                     
                     
-                    if login_empresas in data["empresas_cadastradas"]:
-                        lista_empresas = data["empresas_cadastradas"][login_empresas]["alimentos_doados"]
+                    if login_empresas in caminho_empresas["empresas_cadastradas"]:
+                        lista_empresas = caminho_empresas["empresas_cadastradas"][login_empresas]["alimentos_a_doar"]
                         
-                        loopstring = True
-                        while loopstring:
+                        looppp = True
+                        while looppp:
     
-                            new_alimento = input('Digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",")
+                            new_alimento = input('Por Favor, digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",")
                             if new_alimento.isnumeric():
                                 print('\nDigite alimentos.\n')
 
                             else:
                                 lista_empresas.append(new_alimento)
-                                loopstring = False
+                                looppp = False
                                 print('Salvando...')
                         
-                        data["empresas_cadastradas"][login_empresas]["alimentos_doados"] = lista_empresas
                         with open('Json/empresas.json', 'w') as file:
-                            json.dump(data, file, indent=4)
+                            json.dump(caminho_empresas, file, indent=4)
                         
                             print('\nA lista foi salva com êxito!\n')
                             
@@ -209,7 +208,7 @@ def make_login_empresas(validation_json):
                             
                 elif choice2 == '4':
                     go_to_menu()
-                    break
+                    looppp = False
                     
                 else:
                     print('\nOpção inválida! Tente novamente.\n')

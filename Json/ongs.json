@@ -5,17 +5,18 @@
             "nome_ong": "OnGdoBem",
             "endereco_ong": "avenida vida nova",
             "email_ong": "OngBem@gmail.com",
-            "receber_alimentos": [
+            "alimentos_a_receber": [
                 "arroz,feijao,batata"
             ]
         },
         "Teste": {
             "senha": "123",
-            "nome_ong": "Testezinho",
-            "endereco_ong": "av teste 123",
-            "email_ong": "testando123@gmail.com",
-            "receber_alimentos": [
-                "feijao"
+            "nome_ong": "AAAAAA",
+            "endereco_ong": "aaaaaaa",
+            "email_ong": "AAAAA",
+            "alimentos_a_receber": [
+                "feijao",
+                "aaaaaaaaaaa"
             ]
         }
     }

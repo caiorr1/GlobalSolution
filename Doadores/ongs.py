@@ -1,30 +1,28 @@
-from funcoes.formatacao import lin
+from funcoes.formatacao import lin, title
 import funcoes.autodefs_ongs as autodefs_ongs
 import funcoes.autodefs_empresas as autodefs_empresas
 
-def get_ongs():
-    lin()
-    print('Bem vindo à area para ONGs!')
-    lin()
+def ongs():
+    title(title1='Bem vindo à area para ONGs!')
     
     
     loop = True
     while loop:
         
-        choice = input('Digite (1) se deseja se cadastrar.\nDigite (2) se deseja fazer login\nDigite (3) se deseja voltar ao menu principal.\n')
-        choice_list = ['1', '2', '3']
+        escolha_menu = input('Digite (1) se deseja se cadastrar.\nDigite (2) se deseja fazer login\nDigite (3) se deseja voltar ao menu principal.\n')
+        lista_escolha_menu = ['1', '2', '3']
         
-        if choice not in choice_list:
+        if escolha_menu not in lista_escolha_menu:
             print('\nOpção inválida! Tente novamente\n')
             
-        elif choice in choice_list[2]:
+        elif escolha_menu in lista_escolha_menu[2]:
             autodefs_empresas.go_to_menu()
             
-        #CONTINUAR A OPCAO DE CADASTRO    
-        elif choice == choice_list[0]:
+           
+        elif escolha_menu == lista_escolha_menu[0]:
             autodefs_ongs.make_register_ongs()
         
-        #CONTINUAR A OPCAO DE LOGIN
-        elif choice == choice_list[1]:
-            validation_json_ongs = autodefs_ongs.loadjson_ongs
-            autodefs_ongs.make_login_ongs(validation_json_ongs)
+        
+        elif escolha_menu == lista_escolha_menu[1]:
+            json_validado_ongs = autodefs_ongs.carregarjson_ongs()
+            autodefs_ongs.login_ongs(json_validado_ongs)

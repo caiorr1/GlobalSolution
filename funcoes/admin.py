@@ -18,5 +18,5 @@ def admin_run():
             
         elif choice == '1':
             print('\nOk... Enviando as listas!\n')
-            autodefs_admin.encontrar_coincidencias_empresas_ongs()
-            autodefs_admin.encontrar_coincidencias_pf_ong()
+            autodefs_admin.match_empresas()
+            autodefs_admin.match_pessoafisica()

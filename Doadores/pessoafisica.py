@@ -1,32 +1,30 @@
-from funcoes.formatacao import lin
+from funcoes.formatacao import lin, title
 import main
 import funcoes.autodefs_pessoafisica as autodefs_pessoafisica
 
-def get_natural_person():
-    lin()
-    print('Bem vindo à area de Pessoa Fisíca!')
-    lin()
+def pessoasnaturais():
+    title(title1='Bem vindo à area de Pessoa Fisíca!')
     
-    loop = True
-    while loop:
+    loopvalidando = True
+    while loopvalidando:
         
-        choice = input('Digite (1) se deseja se cadastrar.\nDigite (2) se deseja fazer login\nDigite (3) se deseja voltar ao menu principal.\n')
-        choice_list = ['1', '2', '3']
+        escolha_menu = input('Digite (1) se deseja se cadastrar.\nDigite (2) se deseja fazer login\nDigite (3) se deseja voltar ao menu principal.\n')
+        lista_escolha_menu = ['1', '2', '3']
         
-        if choice not in choice_list:
+        if escolha_menu not in lista_escolha_menu:
             print('\nOpção inválida! Tente novamente\n')
             
-        elif choice in choice_list[2]:
+        elif escolha_menu in lista_escolha_menu[2]:
             print('\nOk...Voltando para o menu principal\n')
             lin()
             print('- Bem vindo ao SeedS, aquecendo corações! -')
             lin()
-            main.main_menu()
-        #CONTINUAR A OPCAO DE CADASTRO    
-        elif choice == choice_list[0]:
-            autodefs_pessoafisica.make_register_pessoa()
+            main.menu_principal()
+           
+        elif escolha_menu == lista_escolha_menu[0]:
+            autodefs_pessoafisica.registrar_pessoafisica()
        
-        #CONTINUAR A OPCAO DE LOGIN
-        elif choice == choice_list[1]:
-            validation_json_pessoas = autodefs_pessoafisica.loadjson_pessoas()
-            autodefs_pessoafisica.make_login_pessoa(validation_json_pessoas)
+        
+        elif escolha_menu == lista_escolha_menu[1]:
+            json_validado_pessoasfisicas = autodefs_pessoafisica.carregarjson_pessoasfisicas()
+            autodefs_pessoafisica.login_pessoafisica(json_validado_pessoasfisicas)

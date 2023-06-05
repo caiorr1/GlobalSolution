@@ -5,8 +5,18 @@
             "nome_pessoa": "Pedro",
             "endereco_pessoa": "avenida paulista",
             "email_pessoa": "pedrocas@gmail.com",
-            "alimentos_doados": [
+            "alimentos_a_doar": [
                 "arroz,feijao,batata"
+            ]
+        },
+        "Luciano": {
+            "senha": "123",
+            "nome_pessoa": "Lulu",
+            "endereco_pessoa": "av lulu",
+            "email_pessoa": "Lulu@outlook",
+            "alimentos_a_doar": [
+                "acucar",
+                "sal"
             ]
         }
     }

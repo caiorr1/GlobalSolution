@@ -17,6 +17,26 @@
             "alimentos_doados": [
                 "feijao"
             ]
+        },
+        "Luiz": {
+            "senha": "123",
+            "nome_empresa": "ElmaChips",
+            "endereco_empresa": "avenida paulista",
+            "email_empresa": "luizinho@gmail.com",
+            "alimentos_a_doar": [
+                "salgadinho"
+            ]
+        },
+        "fulano": {
+            "senha": "123",
+            "nome_empresa": "CACA",
+            "endereco_empresa": "caaaaa",
+            "email_empresa": "AAAA",
+            "alimentos_a_doar": [
+                "feijao,,batata,e,salgadinho",
+                "",
+                "aaaaaaaaaaaaaa"
+            ]
         }
     }
 }

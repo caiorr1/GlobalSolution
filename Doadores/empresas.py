@@ -1,30 +1,30 @@
 from funcoes.formatacao import title
 import funcoes.autodefs_empresas as autodefs_empresas
 
-def get_companies():
+def empresas():
     title(title1='Bem vindo à area para Empresas!')
     
     loop = True
     while loop:
         
-        choice = input('Digite (1) se deseja fazer cadastro.\nDigite (2) se deseja fazer login\nDigite (3) se deseja voltar ao menu principal.\n')
-        choice_list = ['1', '2', '3']
+        escolha_menu = input('Digite (1) se deseja fazer cadastro.\nDigite (2) se deseja fazer login\nDigite (3) se deseja voltar ao menu principal.\n')
+        lista_escolha_menu = ['1', '2', '3']
         
-        if choice not in choice_list:
+        if escolha_menu not in lista_escolha_menu:
             print('\nOpção inválida! Tente novamente\n')
         
-        #condicion makes user go to menu
-        elif choice in choice_list[2]:
+        
+        elif escolha_menu in lista_escolha_menu[2]:
             autodefs_empresas.go_to_menu()
         
-        #condicion makes user register    
-        elif choice == choice_list[0]:
-            autodefs_empresas.make_register_empresas()
+           
+        elif escolha_menu == lista_escolha_menu[0]:
+            autodefs_empresas.registrar_empresas()
                     
-        #CONTINUAR A OPCAO DE LOGIN
-        elif choice == choice_list[1]:
-            validation_json = autodefs_empresas.loadjson_empresas()
-            autodefs_empresas.make_login_empresas(validation_json)
+        
+        elif escolha_menu == lista_escolha_menu[1]:
+            json_validado = autodefs_empresas.carregar_json()
+            autodefs_empresas.fazer_login(json_validado)
             
                             
                     

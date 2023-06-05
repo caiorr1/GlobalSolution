@@ -20,7 +20,7 @@ def usuario_registrado_ongs(login_ong, email_ong):
 
 
 # função para ler o json das ongs   
-def readjson_ongs(login_ong):
+def lerjson_ongs(login_ong):
     with open ('Json/ongs.json') as file:
         ongs_json = json.load(file)
     
@@ -32,7 +32,7 @@ def readjson_ongs(login_ong):
 
 
 # função para inserir os dados no json das ongs
-def insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, checkedpassord_ong, recived_alimentos_ong, ongs_way, ongs_insert):
+def inserirjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, checkedpassord_ong, alimentos_a_receber, ongs_way, ongs_insert):
     if not ongs_insert:
         if password_ong == checkedpassord_ong:
             ongs_way[login_ong] = {
@@ -40,7 +40,7 @@ def insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, c
                 "nome_ong" : name_ong,
                 "endereco_ong" : address_ong,
                 "email_ong" : email_ong,
-                "receber_alimentos" : recived_alimentos_ong,
+                "alimentos_a_receber" : alimentos_a_receber,
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
@@ -53,17 +53,17 @@ def insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, c
                 json.dump(data, file, indent=4)
 
 # funcao para carregar o json, usada para validação das ongs
-def loadjson_ongs():
+def carregarjson_ongs():
     with open('Json/ongs.json') as arquivo_validado:
-        validation_file_ongs = json.load(arquivo_validado)
+       arquivo_validado_ongs = json.load(arquivo_validado)
         
-        validation_json_ongs = validation_file_ongs["ongs_cadastradas"]
+    json_validado_ongs = arquivo_validado_ongs["ongs_cadastradas"]
     
-    return validation_json_ongs
+    return json_validado_ongs
 
 
 # função para fazer o cadastro das ongs                           
-def make_register_ongs():
+def registrar_ongs():
     print('Ok... Vamos cadastrar sua ONG!\n')
     
     looplogin = True
@@ -72,10 +72,10 @@ def make_register_ongs():
         email_ong = input('\nDigite o seu email:\n')
         
         # verifica se o usuário já está cadastrado no JSON
-        result_ong = usuario_registrado_ongs(login_ong, email_ong)
-        if result_ong == "usuario_existe":
+        validar_registro_ong = usuario_registrado_ongs(login_ong, email_ong)
+        if validar_registro_ong == "usuario_existe":
             print('\nUsuário já cadastrado. Por favor, escolha outro nome de usuário.\n')
-        elif result_ong == "email_existe":
+        elif validar_registro_ong == "email_existe":
             print('\nE-mail já cadastrado. Por favor, utilize outro e-mail.\n')
         else:
             break
@@ -92,13 +92,13 @@ def make_register_ongs():
         elif password_ong == checkedpassord_ong:
             break 
             
-    recived_alimentos_ong = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que gostaria de receber:\n').lower().replace(" ", ",")
-    recived_alimentos_ong = [recived_alimentos_ong]
+    alimentos_a_receber = input('\nÓtimo! Seu cadastro está quase completo... Por último, digite os alimentos que gostaria de receber:\n').lower().replace(" ", ",")
+    alimentos_a_receber = [alimentos_a_receber]
     
     print('\nCadastro completo! Salvando...\n')
-    ongs_way, ongs_insert = readjson_ongs(login_ong)
+    ongs_way, ongs_insert = lerjson_ongs(login_ong)
     
-    insertjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, checkedpassord_ong, recived_alimentos_ong, ongs_way, ongs_insert)
+    inserirjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, checkedpassord_ong, alimentos_a_receber, ongs_way, ongs_insert)
     
     print('\nTudo Ok!\n')
     
@@ -106,7 +106,7 @@ def make_register_ongs():
     
     
 #função para fazer o login das ongs
-def make_login_ongs(validation_json_ongs):
+def login_ongs(json_validado_ongs):
     print('\nOk... Vamos fazer o login!\n')
     
     looplogin = True
@@ -115,9 +115,9 @@ def make_login_ongs(validation_json_ongs):
         login_ong = input('Digite o seu usuário:\n')
         password_ong = input('\nDigite a sua senha:\n')
         
-        validation_json_ongs = loadjson_ongs()
+        json_validado_ongs = carregarjson_ongs()
         
-        if login_ong in validation_json_ongs and password_ong == validation_json_ongs[login_ong]["senha"]:
+        if login_ong in json_validado_ongs and password_ong == json_validado_ongs[login_ong]["senha"]:
             title(title1=f'Bem vindo {login_ong}!')
            
             looplogin = False
@@ -128,13 +128,13 @@ def make_login_ongs(validation_json_ongs):
                 if choice2 == '1':
                     print('\nOk... Vamos exibir suas informações!\n')
                     
-                    if login_ong in validation_json_ongs:
+                    if login_ong in json_validado_ongs:
                         lin()
                         print('Informações da ONG:')
-                        print(f'Nome: {validation_json_ongs[login_ong]["nome_ong"]}')
-                        print(f'Endereço: {validation_json_ongs[login_ong]["endereco_ong"]}')
-                        print(f'Contato: {validation_json_ongs[login_ong]["email_ong"]}')
-                        print(f'Alimentos que gostariam de receber: {validation_json_ongs[login_ong]["receber_alimentos"]}')
+                        print(f'Nome: {json_validado_ongs[login_ong]["nome_ong"]}')
+                        print(f'Endereço: {json_validado_ongs[login_ong]["endereco_ong"]}')
+                        print(f'Contato: {json_validado_ongs[login_ong]["email_ong"]}')
+                        print(f'Alimentos que gostariam de receber: {json_validado_ongs[login_ong]["alimentos_a_receber"]}')
                         lin()
                     else:
                         print('\nONG não encontrada.\n')
@@ -142,7 +142,7 @@ def make_login_ongs(validation_json_ongs):
                 elif choice2 == '2':
                     print('\nOk... Vamos alterar informações!\n')
                     
-                    new_cadaster_ong = validation_json_ongs
+                    new_cadaster_ong = json_validado_ongs
                     
                     if login_ong in new_cadaster_ong:
                         print('\nVamos refazer o seu cadastro!\n')
@@ -170,14 +170,14 @@ def make_login_ongs(validation_json_ongs):
                         title(title1='Bem vindo à area para ONGs!')
                         
                 elif choice2 =='3':
-                    print('\nOk...Vamos adicionar alimentos a sua lista!\n')
+                    print('\nVamos adicionar alimentos a sua lista!\n')
                     
                     with open('Json/ongs.json', 'r+') as file2:
-                        data_ongs = json.load(file2)
+                        caminho_ongs = json.load(file2)
                     
                     
-                    if login_ong in data_ongs["ongs_cadastradas"]:
-                        lista_ongs = data_ongs["ongs_cadastradas"][login_ong]["receber_alimentos"]
+                    if login_ong in caminho_ongs["ongs_cadastradas"]:
+                        lista_ongs = caminho_ongs["ongs_cadastradas"][login_ong]["alimentos_a_receber"]
                         
                         loopstring = True
                         while loopstring:
@@ -192,7 +192,7 @@ def make_login_ongs(validation_json_ongs):
                                 print('Salvando...')
 
                         with open('Json/ongs.json', 'w') as file:
-                            json.dump(data_ongs, file, indent=4)
+                            json.dump(caminho_ongs, file, indent=4)
                             
                             print('\nA lista foi salva com êxito!\n')
                             
