@@ -8,6 +8,19 @@
             "alimentos_a_doar": [
                 "ModeloPessoaFisica"
             ]
+        },
+        "caio": {
+            "senha": "123",
+            "nome_pessoa": "Caio",
+            "endereco_pessoa": "av paulista",
+            "email_pessoa": "caio@gmail.com",
+            "alimentos_a_doar": [
+                "arroz",
+                "feijao",
+                "carne",
+                "acucar",
+                "sal"
+            ]
         }
     }
 }
