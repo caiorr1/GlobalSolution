@@ -11,15 +11,13 @@
         },
         "caio": {
             "senha": "123",
-            "nome_pessoa": "Caio",
-            "endereco_pessoa": "av paulista",
+            "nome_pessoa": "caio",
+            "endereco_pessoa": "avv vida nova",
             "email_pessoa": "caio@gmail.com",
             "alimentos_a_doar": [
                 "arroz",
                 "feijao",
-                "carne",
-                "acucar",
-                "sal"
+                "carne"
             ]
         }
     }

@@ -36,7 +36,7 @@ def match_empresas():
                 )
 
     if len(match_info) == 0:
-        print("\nNenhum informação cruzada.\n")
+        print("\nNenhum informação cruzada entre ONGs e Empresas.\n")
     else:
         lin()
         print("Informações cruzadas entre ONGs e Empresas\n")
@@ -85,7 +85,7 @@ def match_pessoafisica():
                 )
 
     if len (match_info) == 0:
-        print("\nNenhum informação cruzada.\n")
+        print("\nNenhum informação cruzada entre ONGs e Pessoas Fisicas.\n")
     else:
         lin()
         print("Informações cruzadas entre ONGs e Pessoas Fisicas:\n")

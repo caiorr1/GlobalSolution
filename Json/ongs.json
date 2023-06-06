@@ -9,15 +9,14 @@
                 "ModeloOng"
             ]
         },
-        "ong": {
+        "ooongg": {
             "senha": "123",
-            "nome_ong": "OngDoBem",
-            "endereco_ong": "av paulista",
+            "nome_ong": "allaal",
+            "endereco_ong": "lalala",
             "email_ong": "ong@gmail.com",
             "alimentos_a_receber": [
                 "arroz",
-                "carne",
-                ""
+                "feijao"
             ]
         }
     }

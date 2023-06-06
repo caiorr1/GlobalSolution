@@ -18,8 +18,12 @@ Dentro de cada arquivo .py na pasta "funcoes" existem funções com funcionalida
 Ainda na pasta "funcoes" existem alguns arquivos diferentes. Seriam eles "formatacao.py" -> usado somente para formatar alguns textos de forma mais rápida; E
 "iachat.py" -> esse arquivo roda todo o funcionamento da requisição na API do ChatGPT. QUANDO FOR USA-LA, ABRA O ARQUIVO "api_key.txt" E COLOQUE A SUA API_KEY, NADA MAIS!.
 E por último o arquivo "admin.py" -> basicamente esse arquivo serve para fazer um match entre os jsons.
-Para rodar o programa você deve inicia-lo pelo arquivo "main.py" e correr para o abraço! Não se esqueça, caso queira utilizar a IA, você deve preencher o txt "api_key"
+Para rodar o programa você deve inicia-lo pelo arquivo "main.py" e correr para o abraço! 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Não se esqueça, caso queira utilizar a IA, você deve preencher o txt "api_key"
 com a sua chave. Caso não preencha, o mesmo não conseguirá rodar o código.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ----------------------------------------
 Integrantes do Grupo: 

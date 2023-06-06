@@ -10,7 +10,7 @@ def menu_principal():
     loop = True
     while loop:
         
-        entrada = input('Digite (1) se você é uma Empresa\nDigite (2) se você é uma ONG\nDigite (3) se você é uma Pessoa Fisíca\nDigite (4) se você é ADMIN\nDigite (5) para conhecer nossa IA\nDigite (6) se deseja encerrar o programa\n')
+        entrada = input('Digite (1) se você é uma Empresa\nDigite (2) se você é uma ONG\nDigite (3) se você é uma Pessoa Fisíca\nDigite (4) se você é ADMIN\nDigite (5) para conhecer nossa IA e aprender sobre Agricultura Sustentável\nDigite (6) se deseja encerrar o programa\n')
         lista_entrada = ['1', '2', '3', '4', '5', '6']
         
         if entrada not in lista_entrada:
@@ -47,8 +47,6 @@ def menu_principal():
             
 
 if __name__ == '__main__':
-    
-    
-    
+     
     title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
     menu_principal()
