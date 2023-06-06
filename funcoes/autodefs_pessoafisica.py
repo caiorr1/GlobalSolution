@@ -5,7 +5,7 @@ import funcoes.autodefs_empresas as autodefs_empresas
 
 # função para verificar se o usuario e o email já estão registrados   
 def pessoasfisicas_cadastradas(login_pessoa, email_pessoa):
-    with open('Json/pessoas.json') as file:
+    with open('json/pessoas.json') as file:
         pessoas_json = json.load(file)
     
     pessoas_way = pessoas_json["pessoas_cadastradas"]
@@ -21,7 +21,7 @@ def pessoasfisicas_cadastradas(login_pessoa, email_pessoa):
 
 # função para ler o json das pessoas fisicas
 def lerjson_pessoasfisicas(login_pessoa):
-    with open ('Json/pessoas.json') as file:
+    with open ('json/pessoas.json') as file:
         pessoas_json = json.load(file)
     
     pessoas_way = pessoas_json["pessoas_cadastradas"]
@@ -44,18 +44,18 @@ def inserirjson_pessoasfisicas(login_pessoa, name_pessoa, address_pessoa, email_
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
-            with open('Json/pessoas.json', 'r') as file:
+            with open('json/pessoas.json', 'r') as file:
                 data = json.load(file)
         
             data["pessoas_cadastradas"].update(pessoas_way)
         
-            with open('Json/pessoas.json', 'w') as file:
+            with open('json/pessoas.json', 'w') as file:
                 json.dump(data, file, indent=4)
             
             
 # funcao para carregar o json, usada para validação das pessoas fisicas
 def carregarjson_pessoasfisicas():
-    with open('Json/pessoas.json') as arquivo_validado:
+    with open('json/pessoas.json') as arquivo_validado:
         arquivo_validado_pessoas = json.load(arquivo_validado)
         
         json_validado_pessoas = arquivo_validado_pessoas["pessoas_cadastradas"]
@@ -159,12 +159,12 @@ def login_pessoafisica(json_validado_pessoasfisicas):
                         novo_email_pessoafisica = input('\nEscreva o novo email:\n')
                         pessoafisica_atual['email_pessoa'] = novo_email_pessoafisica
 
-                        with open('Json/pessoas.json', 'r') as file:
+                        with open('json/pessoas.json', 'r') as file:
                             dados_pessoafisica = json.load(file)
                         
                         dados_pessoafisica['pessoas_cadastradas'] = novo_cadastro_pessoafisica
                         
-                        with open('Json/pessoas.json', 'w') as file:
+                        with open('json/pessoas.json', 'w') as file:
                             json.dump(dados_pessoafisica, file, indent=4)
 
                         print('\nInformações salvas\n')
@@ -173,7 +173,7 @@ def login_pessoafisica(json_validado_pessoasfisicas):
                 elif choice2 =='3':
                     print('\nVamos adicionar alimentos a sua lista!\n')
                     
-                    with open('Json/pessoas.json', 'r+') as file2:
+                    with open('json/pessoas.json', 'r+') as file2:
                         caminho_pessoasfisicas = json.load(file2)
                     
                     
@@ -184,16 +184,22 @@ def login_pessoafisica(json_validado_pessoasfisicas):
                         while loopstring:
     
                             novo_alimento = input('Por favor, digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",").split(",")
-                            if novo_alimento.isnumeric():
+                            valida_string = True
+                            for alimento_string in novo_alimento:
+                                if not alimento_string.isnumeric():
+                                    valida_string = False
+                                    break
+                                
+                            if valida_string:
                                 print('\nDigite alimentos.\n')
 
                             else:
-                                lista_pessoas.append(novo_alimento)
+                                lista_pessoas.extend(novo_alimento)
                                 loopstring = False
                                 print('Salvando...')
 
 
-                        with open('Json/pessoas.json', 'w') as file:
+                        with open('json/pessoas.json', 'w') as file:
                             json.dump(caminho_pessoasfisicas,file, indent=4)
                             
                             print('\nA lista foi salva com êxito!\n')

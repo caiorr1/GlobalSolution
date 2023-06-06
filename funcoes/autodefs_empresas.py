@@ -12,7 +12,7 @@ def go_to_menu():
 
 #função para verificar se o usuario e o email já estão registrados   
 def usuario_cadastrado(login_empresas,email_empresa):
-    with open('Json/empresas.json') as file:
+    with open('json/empresas.json') as file:
         empresas_json = json.load(file)
     
     empresas_way = empresas_json["empresas_cadastradas"]
@@ -28,7 +28,7 @@ def usuario_cadastrado(login_empresas,email_empresa):
 
 #função para ler o json das empresas
 def ler_json(login_empresas):
-    with open('Json/empresas.json') as file:
+    with open('json/empresas.json') as file:
         empresas_json = json.load(file)
 
     empresas_way = empresas_json["empresas_cadastradas"]
@@ -53,18 +53,18 @@ def inserir_json(login_empresas, name_empresa, address_empresa,email_empresa, pa
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
-            with open('Json/empresas.json', 'r') as file:
+            with open('json/empresas.json', 'r') as file:
                 data = json.load(file)
         
             data["empresas_cadastradas"].update(empresas_way)
         
-            with open('Json/empresas.json', 'w') as file:
+            with open('json/empresas.json', 'w') as file:
                 json.dump(data, file, indent=4)
  
 
 #funcao para carregar o json, usada para validação das empresas
 def carregar_json():
-    with open('Json/empresas.json') as arquivo_validado:
+    with open('json/empresas.json') as arquivo_validado:
         arquivo_validado = json.load(arquivo_validado)
         
         json_validado = arquivo_validado["empresas_cadastradas"]
@@ -164,12 +164,12 @@ def fazer_login(json_validado):
                         novo_email = input('\nEscreva o novo email:\n')
                         empresa_atual['email_empresa'] = novo_email
                         
-                        with open('Json/empresas.json', 'r') as file:
+                        with open('json/empresas.json', 'r') as file:
                             novos_dados = json.load(file)
         
                         novos_dados['empresas_cadastradas'] = novo_cadastro
         
-                        with open('Json/empresas.json', 'w') as file:
+                        with open('json/empresas.json', 'w') as file:
                             json.dump(novos_dados, file, indent=4)
                             
                         print('\nInformações salvas!\n')
@@ -178,7 +178,7 @@ def fazer_login(json_validado):
                 elif choice2 =='3':
                     print('\nVamos adicionar alimentos a sua lista!\n')
                     
-                    with open('Json/empresas.json', 'r+') as file2:
+                    with open('json/empresas.json', 'r+') as file2:
                         caminho_empresas = json.load(file2)
                     
                     
@@ -189,15 +189,21 @@ def fazer_login(json_validado):
                         while looppp:
     
                             new_alimento = input('Por Favor, digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",").split(",")
-                            if new_alimento.isnumeric():
+                            
+                            valida_string = True
+                            for alimento_string in new_alimento:
+                                if not alimento_string.isnumeric():
+                                    valida_string = False
+                                    break
+                                
+                            if valida_string:
                                 print('\nDigite alimentos.\n')
-
                             else:
-                                lista_empresas.append(new_alimento)
+                                lista_empresas.extend(new_alimento)
                                 looppp = False
                                 print('Salvando...')
                         
-                        with open('Json/empresas.json', 'w') as file:
+                        with open('json/empresas.json', 'w') as file:
                             json.dump(caminho_empresas, file, indent=4)
                         
                             print('\nA lista foi salva com êxito!\n')

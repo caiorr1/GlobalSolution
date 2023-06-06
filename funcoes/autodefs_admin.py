@@ -4,10 +4,10 @@ from funcoes.formatacao import lin
 
 def match_empresas():
     # Carregar os arquivos JSON
-    with open('Json/ongs.json', 'r') as ongs_file:
+    with open('json/ongs.json', 'r') as ongs_file:
         ongs_json = json.load(ongs_file)
 
-    with open('Json/empresas.json', 'r') as empresas_file:
+    with open('json/empresas.json', 'r') as empresas_file:
         empresas_json = json.load(empresas_file)
 
     ongs = ongs_json["ongs_cadastradas"]
@@ -53,10 +53,10 @@ def match_empresas():
                  
 def match_pessoafisica():
      # Carregar os arquivos JSON
-    with open('Json/ongs.json', 'r') as ongs_file:
+    with open('json/ongs.json', 'r') as ongs_file:
         ongs_json = json.load(ongs_file)
 
-    with open('Json/pessoas.json', 'r') as pessoas_file:
+    with open('json/pessoas.json', 'r') as pessoas_file:
         pessoas_json = json.load(pessoas_file)
 
     ongs = ongs_json["ongs_cadastradas"]

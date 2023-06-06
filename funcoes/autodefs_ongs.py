@@ -5,7 +5,7 @@ import funcoes.autodefs_empresas as autodefs_empresas
 
 # função para verificar se o usuario e o email já estão registrados   
 def usuario_registrado_ongs(login_ong, email_ong):
-    with open('Json/ongs.json') as file:
+    with open('json/ongs.json') as file:
         ongs_json = json.load(file)
     
     ongs_way = ongs_json["ongs_cadastradas"]
@@ -21,7 +21,7 @@ def usuario_registrado_ongs(login_ong, email_ong):
 
 # função para ler o json das ongs   
 def lerjson_ongs(login_ong):
-    with open ('Json/ongs.json') as file:
+    with open ('json/ongs.json') as file:
         ongs_json = json.load(file)
     
     ongs_way = ongs_json["ongs_cadastradas"]
@@ -44,17 +44,17 @@ def inserirjson_ongs(login_ong, name_ong, address_ong, email_ong, password_ong, 
             }
             print('\nOk! Seu cadastro foi salvo... Caso queira alterar, adicionar ou exibir suas informações, faça o login.\n')
             
-            with open('Json/ongs.json', 'r') as file:
+            with open('json/ongs.json', 'r') as file:
                 data = json.load(file)
         
             data["ongs_cadastradas"].update(ongs_way)
         
-            with open('Json/ongs.json', 'w') as file:
+            with open('json/ongs.json', 'w') as file:
                 json.dump(data, file, indent=4)
 
 # funcao para carregar o json, usada para validação das ongs
 def carregarjson_ongs():
-    with open('Json/ongs.json') as arquivo_validado:
+    with open('json/ongs.json') as arquivo_validado:
        arquivo_validado_ongs = json.load(arquivo_validado)
         
     json_validado_ongs = arquivo_validado_ongs["ongs_cadastradas"]
@@ -158,12 +158,12 @@ def login_ongs(json_validado_ongs):
                         new_email_ong= input('\nDigite o novo email:\n')
                         current_ong['email_ong'] = new_email_ong
                         
-                        with open('Json/ongs.json', 'r') as file:
+                        with open('json/ongs.json', 'r') as file:
                             data_ongs = json.load(file)
         
                         data_ongs["ongs_cadastradas"][login_ong] = current_ong
         
-                        with open('Json/ongs.json', 'w') as file:
+                        with open('json/ongs.json', 'w') as file:
                             json.dump(data_ongs, file, indent=4)
 
                         print('\nInformações salvas com sucesso!\n')
@@ -172,7 +172,7 @@ def login_ongs(json_validado_ongs):
                 elif choice2 =='3':
                     print('\nVamos adicionar alimentos a sua lista!\n')
                     
-                    with open('Json/ongs.json', 'r+') as file2:
+                    with open('json/ongs.json', 'r+') as file2:
                         caminho_ongs = json.load(file2)
                     
                     
@@ -183,15 +183,21 @@ def login_ongs(json_validado_ongs):
                         while loopstring:
     
                             new_alimento = input('Digite os alimentos que deseja adicionar na lista.\n').lower().replace(" ", ",").split(",")
-                            if new_alimento.isnumeric():
+                            valida_string = True
+                            for alimento_string in new_alimento:
+                                if not alimento_string.isnumeric():
+                                    valida_string = False
+                                    break
+                                
+                            if valida_string:
                                 print('\nDigite alimentos.\n')
-
+                                
                             else:
-                                lista_ongs.append(new_alimento)
+                                lista_ongs.extend(new_alimento)
                                 loopstring = False
                                 print('Salvando...')
 
-                        with open('Json/ongs.json', 'w') as file:
+                        with open('json/ongs.json', 'w') as file:
                             json.dump(caminho_ongs, file, indent=4)
                             
                             print('\nA lista foi salva com êxito!\n')
