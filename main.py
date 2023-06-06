@@ -45,7 +45,6 @@ def menu_principal():
             quit()
             
             
-
 if __name__ == '__main__':
      
     title(title1='- Bem vindo ao SeedS, aquecendo corações! -')
