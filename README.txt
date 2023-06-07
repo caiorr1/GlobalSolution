@@ -1,6 +1,4 @@
-*********************
 Olá, seja bem vindo!
-*********************
 
 Esse projeto está sendo criado para uma entrega da faculdade.
 
